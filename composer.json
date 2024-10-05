@@ -1,0 +1,13 @@
+{
+    "name": "daniel/send_email_recap",
+    "description": "send email recap",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Daniel Deaconescu"
+        }
+    ],
+    "require": {
+        "phpmailer/phpmailer": "^6.9"
+    }
+}
