@@ -12,8 +12,20 @@ $mail = new PHPMailer(true);
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    $name = htmlspecialchars($_POST['name']);
-    $email = $_POST['email'];
+    $fullName = filter_input(INPUT_POST, 'full-name', FILTER_SANITIZE_STRING);
+    $phoneNum = filter_input(INPUT_POST, 'phone-num', FILTER_SANITIZE_STRING);
+    $location = filter_input(INPUT_POST, 'location', FILTER_SANITIZE_STRING);
+    $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_STRING);
+    $orderDescription = filter_input(INPUT_POST, 'order-description', FILTER_SANITIZE_STRING);
+
+    if(strlen($fullName) > 100 || strlen($phoneNum) > 100 || strlen($location) > 100 || strlen($email) > 100){
+        die("Too large input data.");
+    }
+
+    // full-name and phone number required
+    if(empty($fullName) || empty($phoneNum) || strlen($phoneNum) < 7){
+        die("Numele si un numar de telefon valid sunt obligatorii.");
+    }
 
     try {
         $mail->isSMTP();                                            
@@ -30,10 +42,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     
         //Content
         $mail->isHTML(true);
-        $mail->Subject = 'New form submission from ' . $name;
+        $mail->Subject = 'Formular Atelier ' . $fullName;
         $mail->Body    = "
-            <h2>Name: $name </h2> . '<br>'
-            <h2>Email: $email </h2> . '<br>'
+            <h6>Nume: <strong>$fullName</strong></h6> <br/>
+            <h6>Numar de telefon: <strong>$phoneNum</strong></h6> <br/>
+            <h6>Localitate: <strong>$location</strong></h6> <br/>
+            <h6>Email: <strong>$email</strong></h6> <br/>
+            <h6>Descrierea lucrarii: <strong>$orderDescription</strong></h6> <br/>
         ";
         // $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
     

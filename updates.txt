@@ -2,3 +2,12 @@
 2. Make the form be able to send emails (use my own server initially)
 3. Look into what security features I have to implement considering that the form will be available in the internet and that it will use the server to send emails
     3.1 I made sure the form submission works on the server, now I need to implement a few security features
+
+4. Make sure the form is fully responsive 
+    4.1 Make sure createing a media query for every resolution is the right approach
+    4.2 Create the button that displays the form
+    4.3 Implement the functionality to open the form and close it by hitting "X" or the overlay
+
+
+
+Color Palette: https://colorhunt.co/palette/070f2b1b1a55535c919290c3

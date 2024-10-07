@@ -1,3 +1,10 @@
+"use strict";
+
+const navigation = document.querySelector(".navbar");
+const formButton = document.querySelector(".form-button");
+const formContainer = document.querySelector(".form-container");
+const overlay = document.querySelector(".overlay");
+
 function isElementInViewport(el) {
   if (typeof jQuery === "function" && el instanceof jQuery) {
     el = el[0];
@@ -52,3 +59,18 @@ setTimeout(() => {
     cookieContainer.classList.add("active");
   }
 }, 2000);
+
+// form functionality
+
+const toggleForm = function () {
+  formContainer.classList.toggle("no-display");
+  overlay.classList.toggle("no-display");
+};
+
+const closeForm = function () {
+  formContainer.classList.add("no-display");
+  overlay.classList.add("no-display");
+};
+
+formButton.addEventListener("click", toggleForm);
+overlay.addEventListener("click", closeForm);

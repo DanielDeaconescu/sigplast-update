@@ -5,6 +5,7 @@
 
 body {
   overflow-x: hidden;
+  position: relative;
 }
 
 .navbar .nav-link {
@@ -282,10 +283,10 @@ body {
 }
 
 .no-display {
-  display: none;
+  display: none !important;
 }
 
-.darken-overlay {
+.overlay {
   position: fixed;
   width: 100%;
   height: 100%;
@@ -294,8 +295,9 @@ body {
   right: 0;
   bottom: 0;
   background: #000;
-  opacity: 0.5;
+  opacity: 0.75;
   filter: blur(2px);
+  z-index: 4;
 }
 
 .actual-close-icon {
@@ -527,6 +529,60 @@ main hr {
 
 /* Cookies Page */
 
+/* Form styling */
+
+.form-container {
+  background-color: rgb(83, 92, 145);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* padding: 5rem 10rem; */
+  max-width: 650px;
+  z-index: 4;
+}
+
+.form-close-button {
+  position: absolute;
+  top: 4%;
+  right: 7.5%;
+  border: none;
+  background-color: transparent;
+  color: white;
+}
+
+.form-button:hover {
+  cursor: pointer;
+}
+
+/* Form styling */
+
+/* Side-buttons styling */
+
+.side-buttons {
+  position: fixed;
+  bottom: 25%;
+  right: 5%;
+}
+
+.form-button {
+  background-color: rgb(83, 92, 145);
+  padding: 1rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  color: white;
+}
+
+.form-button:hover {
+  cursor: pointer;
+}
+
+/* Side-buttons styling */
+
 /* Media Queries */
 @media (max-width: 768px) {
   .padded-y {
@@ -541,4 +597,134 @@ main hr {
     padding-bottom: 20px;
   }
 }
+
+/* Media Queries for form */
+
+@media (min-width: 300px) {
+  .form-container {
+    padding: 4rem;
+    top: 55%;
+  }
+}
+
+@media (min-width: 344px) {
+  .form-container {
+    padding: 4rem;
+    top: 49%;
+  }
+}
+
+@media (min-width: 360px) {
+  .form-container {
+    padding: 4rem;
+    top: 53%;
+  }
+}
+
+@media (min-width: 375px) {
+  .form-container {
+    padding: 4rem;
+    top: 55%;
+  }
+}
+
+@media (min-width: 390px) {
+  .form-container {
+    padding: 4rem;
+    top: 47%;
+  }
+}
+
+@media (min-width: 400px) {
+  .form-container {
+    padding: 4rem;
+    top: 44%;
+  }
+}
+
+@media (min-width: 412px) {
+  .form-container {
+    padding: 4rem;
+    top: 43%;
+  }
+}
+
+@media (min-width: 430px) {
+  .form-container {
+    padding: 4rem;
+    top: 42%;
+  }
+}
+
+@media (min-width: 540px) {
+  .form-container {
+    padding: 4rem;
+    top: 55%;
+  }
+}
+
+@media (min-width: 768px) {
+  .form-container {
+    max-width: 500px;
+    padding: 4rem 6rem;
+    top: 38%;
+  }
+}
+
+@media (min-width: 820px) {
+  .form-container {
+    max-width: 550px;
+    padding: 4rem 7rem;
+    top: 33%;
+  }
+}
+
+@media (min-width: 853px) {
+  .form-container {
+    max-width: 550px;
+    padding: 4rem 7rem;
+    top: 30%;
+  }
+}
+
+@media (min-width: 912px) {
+  .form-container {
+    max-width: 560px;
+    padding: 4rem 6rem;
+    top: 28%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .form-container {
+    max-width: 650px;
+    padding: 4rem 7rem;
+    top: 29%;
+  }
+}
+
+@media (min-width: 1024px) and (min-height: 600px) {
+  .form-container {
+    max-width: 750px;
+    padding: 4rem 10rem;
+    top: 60%;
+  }
+}
+
+@media (min-width: 1280px) and (min-height: 800px) {
+  .form-container {
+    max-width: 750px;
+    padding: 4rem 10rem;
+    top: 50%;
+  }
+}
+
+@media (min-width: 1024px) and (min-height: 1366px) {
+  .form-container {
+    max-width: 750px;
+    padding: 4rem 10rem;
+    top: 29%;
+  }
+}
+/* Media Queries for form */
 /* Media Queries */
