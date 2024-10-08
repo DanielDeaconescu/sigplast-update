@@ -37,18 +37,31 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->Port       = 465; 
     
         //Recipients
-        $mail->setFrom('contact@danieldeaconescu.com', "Daniel's website");
+        $mail->setFrom('contact@danieldeaconescu.com', "Sigplast website");
         $mail->addAddress('daniel.deaconescu98@gmail.com', "$name");
-    
+        $mail->CharSet = 'UTF-8';
+
         //Content
         $mail->isHTML(true);
         $mail->Subject = 'Formular Atelier ' . $fullName;
         $mail->Body    = "
-            <h6>Nume: <strong>$fullName</strong></h6> <br/>
-            <h6>Numar de telefon: <strong>$phoneNum</strong></h6> <br/>
-            <h6>Localitate: <strong>$location</strong></h6> <br/>
-            <h6>Email: <strong>$email</strong></h6> <br/>
-            <h6>Descrierea lucrarii: <strong>$orderDescription</strong></h6> <br/>
+            <h3>Informatii Comanda Atelier</h3>
+            <div>
+                <p>Nume: <strong>$fullName</strong></p>
+            </div>
+            <div>
+                <p>Numar de telefon: <strong>$phoneNum</strong></p>
+            </div>
+            <div>
+                <p>Localitate: <strong>$location</strong></p>
+            </div>
+            <div>
+                <p>Email: <strong>$email</strong></p>
+            </div>
+            <div>
+                <p>Descrierea lucrarii:        <strong>$orderDescription</strong></p>
+            </div>
+            
         ";
         // $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
     

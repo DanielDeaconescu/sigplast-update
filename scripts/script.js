@@ -3,6 +3,7 @@
 const navigation = document.querySelector(".navbar");
 const formButton = document.querySelector(".form-button");
 const formContainer = document.querySelector(".form-container");
+const formCloseButton = document.querySelector(".form-close-button");
 const overlay = document.querySelector(".overlay");
 
 function isElementInViewport(el) {
@@ -74,3 +75,7 @@ const closeForm = function () {
 
 formButton.addEventListener("click", toggleForm);
 overlay.addEventListener("click", closeForm);
+formCloseButton.addEventListener("click", closeForm);
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Escape") closeForm();
+});
