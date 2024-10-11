@@ -8,7 +8,7 @@
     4.2 Create the button that displays the form (done)
     4.3 Implement the functionality to open the form and close it by hitting "X" or the overlay (done)
 5. form
-    5.1 empty the form after submission
+    5.1 empty the form after submission (done)
     5.2 create a submission page
 
 

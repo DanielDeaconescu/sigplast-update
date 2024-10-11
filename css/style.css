@@ -531,7 +531,7 @@ main hr {
 
 /* Form styling */
 
-.form-container {
+/* .form-container {
   background-color: rgb(83, 92, 145);
   color: white;
   display: flex;
@@ -540,7 +540,7 @@ main hr {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  /* padding: 5rem 10rem; */
+  padding: 5rem 10rem;
   max-width: 650px;
   z-index: 4;
 }
@@ -556,6 +556,19 @@ main hr {
 
 .form-button:hover {
   cursor: pointer;
+} */
+
+.action-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn-send-custom {
+  flex: 1;
+}
+
+.btn-cancel-custom {
+  flex: 1;
 }
 
 /* Form styling */
@@ -565,7 +578,7 @@ main hr {
 .side-buttons {
   position: fixed;
   bottom: 20%;
-  right: 2%;
+  right: 4%;
 }
 
 .form-button {

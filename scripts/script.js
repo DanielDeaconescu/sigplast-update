@@ -1,9 +1,10 @@
 "use strict";
 
 const navigation = document.querySelector(".navbar");
-const formButton = document.querySelector(".form-button");
 const formContainer = document.querySelector(".form-container");
+const workshopForm = document.querySelector(".workshop_form");
 const formCloseButton = document.querySelector(".form-close-button");
+const cancelFormBtn = document.querySelector(".btn-cancel-custom");
 const overlay = document.querySelector(".overlay");
 
 function isElementInViewport(el) {
@@ -73,9 +74,18 @@ const closeForm = function () {
   overlay.classList.add("no-display");
 };
 
-formButton.addEventListener("click", toggleForm);
+const resetForm = function () {
+  workshopForm.reset();
+};
+
+cancelFormBtn.addEventListener("click", resetForm);
+
 overlay.addEventListener("click", closeForm);
 formCloseButton.addEventListener("click", closeForm);
 document.addEventListener("keydown", function (e) {
   if (e.key === "Escape") closeForm();
+});
+
+workshopForm.addEventListener("submit", function () {
+  workshopForm.reset();
 });
