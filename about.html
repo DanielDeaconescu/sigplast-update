@@ -38,7 +38,7 @@
       integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A=="
       crossorigin="anonymous"
     />
-    <link rel="icon" href="img/logo/favicon.jpg" type="image/gif" />
+    <link rel="icon" href="img/general/favicon.jpg" type="image/gif" />
     <link rel="stylesheet" href="css/style.css" />
     <title>Sigplast Despre</title>
   </head>
@@ -250,6 +250,97 @@
         </div>
       </div>
     </footer>
+
+    <!-- Modal with Form -->
+    <div
+      class="modal fade"
+      id="modalForm"
+      tabindex="-1"
+      aria-labelledby="modalForm"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalForm">Formular comandă atelier</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form action="form_process.php" method="post" class="workshop_form">
+              <div class="mb-3">
+                <label for="" class="form-label">Nume complet:</label>
+                <input
+                  type="text"
+                  name="full-name"
+                  class="form-control"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="">Număr de telefon:</label>
+                <input
+                  type="tel"
+                  name="phone-num"
+                  class="form-control"
+                  placeholder="0755404218"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="">Localitatea:</label>
+                <input type="text" name="location" class="form-control" />
+              </div>
+              <div class="mb-3">
+                <label for="">Email:</label>
+                <input type="email" name="email" class="form-control" />
+              </div>
+              <div class="mb-3">
+                <label for="">Descriere comandă:</label>
+                <textarea
+                  name="order-description"
+                  id=""
+                  class="form-control"
+                  placeholder="Ex: inchidere balcon"
+                ></textarea>
+              </div>
+              <div class="mb-3 action-buttons">
+                <input
+                  type="submit"
+                  value="Trimite"
+                  class="btn btn-success btn-send-custom"
+                />
+                <button
+                  type="button"
+                  class="btn btn-danger btn-cancel-custom"
+                  data-bs-dismiss="modal"
+                >
+                  Anulează
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal with Form -->
+
+    <!-- Modal Form Button -->
+    <div class="side-buttons">
+      <button
+        type="button"
+        class="side-buttons-form-button"
+        data-bs-toggle="modal"
+        data-bs-target="#modalForm"
+      >
+        <i class="fa-regular fa-message"></i>
+      </button>
+    </div>
+    <!-- Modal Form Button -->
 
     <!-- jQuery -->
     <script

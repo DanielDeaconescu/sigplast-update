@@ -24,7 +24,7 @@
 
     <!-- Lightbox CSS -->
     <link rel="stylesheet" href="css/lightbox.min.css" />
-    <link rel="icon" href="img/logo/favicon.jpg" type="image/gif" />
+    <link rel="icon" href="img/general/favicon.jpg" type="image/gif" />
     <link rel="stylesheet" href="css/style.css" />
     <title>Sigplast Atelier PVC și Aluminiu</title>
   </head>
@@ -328,13 +328,6 @@
       </div>
     </main>
 
-    <div class="whatsapp-link-1">
-      <div class="workshop-contact-1">Atelier</div>
-      <a href="https://api.whatsapp.com/send?phone=400745628606">
-        <i class="fab fa-whatsapp-square fa-3x"></i>
-      </a>
-    </div>
-
     <!-- Cookie Popup -->
     <div class="cookie-container">
       <p>
@@ -373,6 +366,107 @@
         </div>
       </div>
     </footer>
+
+    <!-- Modal with Form -->
+    <div
+      class="modal fade"
+      id="modalForm"
+      tabindex="-1"
+      aria-labelledby="modalForm"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalForm">Formular comandă atelier</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form action="form_process.php" method="post" class="workshop_form">
+              <div class="mb-3">
+                <label for="" class="form-label">Nume complet:</label>
+                <input
+                  type="text"
+                  name="full-name"
+                  class="form-control"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="">Număr de telefon:</label>
+                <input
+                  type="tel"
+                  name="phone-num"
+                  class="form-control"
+                  placeholder="0755404218"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="">Localitatea:</label>
+                <input type="text" name="location" class="form-control" />
+              </div>
+              <div class="mb-3">
+                <label for="">Email:</label>
+                <input type="email" name="email" class="form-control" />
+              </div>
+              <div class="mb-3">
+                <label for="">Descriere comandă:</label>
+                <textarea
+                  name="order-description"
+                  id=""
+                  class="form-control"
+                  placeholder="Ex: inchidere balcon"
+                ></textarea>
+              </div>
+              <div class="mb-3 action-buttons">
+                <input
+                  type="submit"
+                  value="Trimite"
+                  class="btn btn-success btn-send-custom"
+                />
+                <button
+                  type="button"
+                  class="btn btn-danger btn-cancel-custom"
+                  data-bs-dismiss="modal"
+                >
+                  Anulează
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal with Form -->
+
+    <!-- Side buttons: Form, Whatsapp -->
+    <div class="side-buttons">
+      <div>
+        <a
+          class="side-buttons-whatsapp-link"
+          href="https://api.whatsapp.com/send?phone=400751328081"
+        >
+          <i class="fab fa-whatsapp-square fa-3x"></i>
+        </a>
+      </div>
+      <div>
+        <button
+          type="button"
+          class="side-buttons-form-button"
+          data-bs-toggle="modal"
+          data-bs-target="#modalForm"
+        >
+          <i class="fa-regular fa-message"></i>
+        </button>
+      </div>
+    </div>
+    <!-- Side buttons: Form, Whatsapp -->
 
     <!-- jQuery -->
     <script

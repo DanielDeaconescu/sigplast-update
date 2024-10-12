@@ -66,7 +66,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         // $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
     
         $mail->send();
-        header('Location: submitted.php');
+        header('Location: submitted.html');
     } catch (Exception $e) {
         echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
     }

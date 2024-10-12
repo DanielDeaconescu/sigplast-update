@@ -3,9 +3,12 @@
 const navigation = document.querySelector(".navbar");
 const formContainer = document.querySelector(".form-container");
 const workshopForm = document.querySelector(".workshop_form");
-const formCloseButton = document.querySelector(".form-close-button");
 const cancelFormBtn = document.querySelector(".btn-cancel-custom");
 const overlay = document.querySelector(".overlay");
+const formFactoryBtn = document.querySelector(".factory-workshop__factory");
+const formWorkshopBtn = document.querySelector(".factory-workshop__workshop");
+const initialDisplay = document.querySelector(".initial-display");
+const factoryForm = document.querySelector(".factory-form");
 
 function isElementInViewport(el) {
   if (typeof jQuery === "function" && el instanceof jQuery) {
@@ -81,11 +84,29 @@ const resetForm = function () {
 cancelFormBtn.addEventListener("click", resetForm);
 
 overlay.addEventListener("click", closeForm);
-formCloseButton.addEventListener("click", closeForm);
 document.addEventListener("keydown", function (e) {
   if (e.key === "Escape") closeForm();
 });
 
 workshopForm.addEventListener("submit", function () {
-  workshopForm.reset();
+  setTimeout(() => {
+    resetForm();
+  }, 100);
+});
+
+document.addEventListener("click", function (e) {
+  if (!navigation.contains(e.target)) {
+    document.querySelector("#navbarNav").classList.remove("show");
+    document
+      .querySelector(".navbar-toggler")
+      .setAttribute("aria-expanded", "false");
+    document.querySelector(".navbar-toggler").classList.add("collapsed");
+  } else {
+    console.log("outside the navigation");
+  }
+});
+
+formFactoryBtn.addEventListener("click", function () {
+  initialDisplay.classList.add("d-none");
+  factoryForm.classList.remove("d-none");
 });
