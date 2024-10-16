@@ -14,18 +14,26 @@
     5.3 make sure the form is added on all the pages (done)
     5.4 make sure the "submitted.html" cannot be accesssed other than after the form submission
     5.5 put the whatsapp icons above the form where necessary (done)
-    5.6 when I open the form, I want to have the option to choose between WORKSHOP and FACTORY
-    5.7 create a "info section" and add it as a footer when selecting the order type
+    5.6 when I open the form, I want to have the option to choose between WORKSHOP and FACTORY (done)
+    5.7 create a "info section" and add it as a footer when selecting the form type (done)
+    5.8 add a captcha for each form
+    5.9 create a separate PHP file for each form (done)
+    5.10 When I hover on the form button, display a box with a message: "Completeaza formular" (done)
+        5.10.1 fix the problems with the whatsapp icon 
 6. navigation
     6.1 I want to be able to close the navigation when I click outside of it (done)
+    6.2 Make sure the functionality to close the navigation bar works on all the pages, not just the index. (done)
 7. styling
     7.1 add the favicon on all the pages (done)
-    7.2 change the font-family for the entire website
+    7.2 change the font-family for the entire website (done)
+    7.3 re-make the logos: one for the navbar and one for the footer (done)
 8. cookies
     8.1 do we have the cookie popup on all the html pages?
 
 
 Color Palette: https://colorhunt.co/palette/070f2b1b1a55535c919290c3
+
+https://colorhunt.co/palette/92c7cfaad7d9fbf9f1e5e1da
 
 <!-- Bootstrap icons -->
     <link

@@ -1,3 +1,6 @@
+/* montserrat font */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
 /* General Styles starts*/
 * {
   box-sizing: border-box;
@@ -6,6 +9,7 @@
 body {
   overflow-x: hidden;
   position: relative;
+  font-family: "Montserrat", sans-serif;
 }
 
 .navbar .nav-link {
@@ -20,7 +24,6 @@ body {
 }
 
 .navbar {
-  opacity: 0.95;
   position: fixed;
   top: 0;
   width: 100%;
@@ -653,6 +656,14 @@ main hr {
   max-width: 200px;
 }
 
+.info-factory {
+  color: rgb(83, 92, 145);
+}
+
+.info-workshop {
+  color: rgb(146, 144, 195);
+}
+
 /* Form styling */
 
 /* Side-buttons styling */
@@ -664,6 +675,36 @@ main hr {
   position: fixed;
   bottom: 10%;
   right: 2rem;
+}
+
+.message-form-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.message-form-inner {
+  background-color: rgb(146, 199, 207);
+  color: white;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.message-form-inner-hidden {
+  opacity: 0;
+}
+
+.message-form-inner::after {
+  content: "";
+  position: absolute;
+  bottom: 5%;
+  right: 3rem;
+  transform: translateY(-50%);
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 10px solid rgb(146, 199, 207);
 }
 
 .side-buttons-whatsapp-link {

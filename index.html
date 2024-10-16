@@ -52,7 +52,7 @@
       <div class="container">
         <a href="index.html" class="navbar-brand">
           <img
-            src="img/general/sigplast_logo.png"
+            src="img/general/sigplast_logo_update_navbar.png"
             class="img-fluid"
             alt="sigplast logo"
           />
@@ -406,7 +406,7 @@
         <div class="row">
           <div class="col-md-4">
             <img
-              src="img/general/sigplast_logo.jpg"
+              src="img/general/sigplast_logo_update_footer.png"
               alt="sigplast logo"
               class="img-fluid"
             />
@@ -493,18 +493,41 @@
             </div>
             <div class="modal-body modal-body-initial">
               <div class="container">
-                <div class="row justify-content-center gap-4">
-                  <div class="col-md-6 factory-workshop__factory">
+                <div
+                  class="row justify-content-center gap-4 form-initial-buttons-container"
+                >
+                  <div
+                    class="form-button-initial col-md-6 factory-workshop__factory"
+                  >
                     <div>Fabrica Sigplast</div>
                     <div>Profil PVC</div>
                     <i class="bi bi-building-fill-gear factory-icon"></i>
                   </div>
-                  <div class="col-md-6 factory-workshop__workshop">
+                  <div
+                    class="form-button-initial col-md-6 factory-workshop__workshop"
+                  >
                     <div>Atelier Sigplast</div>
                     <div>Tâmplărie PVC și Aluminiu</div>
                     <i class="bi bi-house-gear workshop-icon"></i>
                   </div>
                 </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <div class="modal-footer-factory">
+                <small>
+                  <i class="bi bi-info-square-fill info-factory"></i>
+                  Completați formularul de <strong>fabrică</strong> dacă doriți
+                  să achiziționați profilul PVC Sigplast.
+                </small>
+              </div>
+              <div class="modal-footer-workshop">
+                <small>
+                  <i class="bi bi-info-square-fill info-workshop"></i>
+                  Completați formularul de <strong>atelier</strong> dacă doriți
+                  realizarea unei comenzi de tâmplărie PVC/Aluminiu (dealer sau
+                  client final).
+                </small>
               </div>
             </div>
           </div>
@@ -522,7 +545,7 @@
           <div class="factory-form d-none">
             <div class="modal-header modal-header-workshop">
               <h5 class="modal-title" id="modalForm">
-                Formular comandă atelier
+                Formular comandă fabrică
               </h5>
               <button
                 type="button"
@@ -534,9 +557,9 @@
 
             <div class="modal-body modal-body-workshop">
               <form
-                action="form_process.php"
+                action="form_process_factory.php"
                 method="post"
-                class="workshop_form"
+                class="factory_form"
               >
                 <div class="mb-3">
                   <label for="" class="form-label">Nume complet:</label>
@@ -593,6 +616,79 @@
           </div>
           <!-- Factory Form -->
           <!-- Workshop Form -->
+          <div class="workshop-form d-none">
+            <div class="modal-header modal-header-workshop">
+              <h5 class="modal-title" id="modalForm">
+                Formular comandă atelier
+              </h5>
+              <button
+                type="button"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+                class="btn-close"
+              ></button>
+            </div>
+
+            <div class="modal-body modal-body-workshop">
+              <form
+                action="form_process_workshop.php"
+                method="post"
+                class="workshop_form"
+              >
+                <div class="mb-3">
+                  <label for="" class="form-label">Nume complet:</label>
+                  <input
+                    type="text"
+                    name="full-name"
+                    class="form-control"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="">Număr de telefon:</label>
+                  <input
+                    type="tel"
+                    name="phone-num"
+                    class="form-control"
+                    placeholder="0755404218"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="">Localitatea:</label>
+                  <input type="text" name="location" class="form-control" />
+                </div>
+                <div class="mb-3">
+                  <label for="">Email:</label>
+                  <input type="email" name="email" class="form-control" />
+                </div>
+                <div class="mb-3">
+                  <label for="">Descriere comandă:</label>
+                  <textarea
+                    name="order-description"
+                    id=""
+                    class="form-control"
+                    placeholder="Ex: inchidere balcon"
+                  ></textarea>
+                </div>
+                <div class="mb-3 action-buttons">
+                  <input
+                    type="submit"
+                    value="Trimite"
+                    class="btn btn-success btn-send-custom"
+                  />
+                  <button
+                    type="button"
+                    class="btn btn-danger btn-cancel-custom"
+                    data-bs-dismiss="modal"
+                  >
+                    Anulează
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+
           <!-- Workshop Form -->
         </div>
       </div>
@@ -601,14 +697,22 @@
 
     <!-- Modal Form Button -->
     <div class="side-buttons">
-      <button
-        type="button"
-        class="side-buttons-form-button"
-        data-bs-toggle="modal"
-        data-bs-target="#modalForm"
-      >
-        <i class="fa-regular fa-message"></i>
-      </button>
+      <div>
+        <i class="bi bi-arrow-up-circle-fill"></i>
+      </div>
+      <div class="message-form-btn">
+        <div class="message-form-inner message-form-inner-hidden">
+          Completează formular
+        </div>
+        <button
+          type="button"
+          class="side-buttons-form-button"
+          data-bs-toggle="modal"
+          data-bs-target="#modalForm"
+        >
+          <i class="fa-regular fa-message"></i>
+        </button>
+      </div>
     </div>
     <!-- Modal Form Button -->
     <!-- jQuery -->
