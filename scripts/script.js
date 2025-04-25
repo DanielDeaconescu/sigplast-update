@@ -182,38 +182,6 @@ formInitialButtonsContainer.addEventListener("click", function (e) {
   }
 });
 
-// formButton hover effect
-formButton.addEventListener("mouseover", function (e) {
-  const hovered = e.target.closest(".side-buttons-form-button");
-  if (hovered) {
-    document
-      .querySelector(".message-form-inner")
-      .classList.remove("message-form-inner-hidden");
-  }
-});
-
-formButton.addEventListener("mouseout", function (e) {
-  document
-    .querySelector(".message-form-inner")
-    .classList.add("message-form-inner-hidden");
-});
-
-// Intersection Observer for the back-top button
-
-const options = {
-  root: document.querySelector(".newsletter"),
-  threshold: 0,
-};
-
-const observeBtn = function (entries, observer) {
-  const [entry] = entries;
-  console.log(entry);
-};
-
-const buttonObserver = new IntersectionObserver(observeBtn, options);
-
-buttonObserver.observe(backTopButtonInner);
-
 // Back-to-top button functionality
 
 function userScroll() {
@@ -240,3 +208,15 @@ if (document.querySelector(".back-top-btn")) {
     .querySelector(".back-top-btn")
     .addEventListener("click", scrollToTop);
 }
+
+formButton.addEventListener("mouseenter", function () {
+  document
+    .querySelector(".message-form-inner")
+    .classList.remove("message-form-inner-hidden");
+});
+
+formButton.addEventListener("mouseleave", function () {
+  document
+    .querySelector(".message-form-inner")
+    .classList.add("message-form-inner-hidden");
+});
