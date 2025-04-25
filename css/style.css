@@ -732,10 +732,16 @@ main hr {
 .whatsapp-container {
   display: flex;
   justify-content: flex-end;
+  align-items: center;
 }
 
-.whatsapp-icon-custom {
-  font-size: 3.25rem;
+.whatsapp-container-inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  padding: 0 3px;
+  border-radius: 5px;
 }
 
 .back-top-btn {
