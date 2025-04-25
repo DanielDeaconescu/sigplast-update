@@ -709,12 +709,10 @@ main hr {
 
 .side-buttons-whatsapp-link {
   color: #25d366;
-  background-color: #fff;
 }
 
 .side-buttons-whatsapp-link:hover {
   color: #25d366;
-  background-color: #fff;
 }
 
 .side-buttons-form-button {
@@ -729,6 +727,22 @@ main hr {
 
 .side-buttons-form-button:hover {
   cursor: pointer;
+}
+
+.whatsapp-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.whatsapp-icon-custom {
+  font-size: 3.25rem;
+}
+
+.back-top-btn {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 3rem;
+  z-index: 100;
 }
 
 /* Side-buttons styling */

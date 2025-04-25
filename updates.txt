@@ -19,7 +19,7 @@
     5.8 add a captcha for each form
     5.9 create a separate PHP file for each form (done)
     5.10 When I hover on the form button, display a box with a message: "Completeaza formular" (done)
-        5.10.1 fix the problems with the whatsapp icon 
+        5.10.1 fix the problems with the whatsapp icon (done) 
 6. navigation
     6.1 I want to be able to close the navigation when I click outside of it (done)
     6.2 Make sure the functionality to close the navigation bar works on all the pages, not just the index. (done)

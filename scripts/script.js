@@ -19,6 +19,8 @@ const formInitialButtonsContainer = document.querySelector(
 const closeFormButton = document.querySelectorAll(".btn-close");
 const formButton = document.querySelector(".side-buttons-form-button");
 const sideButtons = document.querySelector(".side-buttons");
+const newsletter = document.getElementById("newsletter");
+const backTopButtonInner = document.querySelector(".back-top-btn-inner");
 
 function isElementInViewport(el) {
   if (typeof jQuery === "function" && el instanceof jQuery) {
@@ -195,3 +197,19 @@ formButton.addEventListener("mouseout", function (e) {
     .querySelector(".message-form-inner")
     .classList.add("message-form-inner-hidden");
 });
+
+// Intersection Observer for the back-top button
+
+const options = {
+  root: document.querySelector(".newsletter"),
+  threshold: 0,
+};
+
+const observeBtn = function (entries, observer) {
+  const [entry] = entries;
+  console.log(entry);
+};
+
+const buttonObserver = new IntersectionObserver(observeBtn, options);
+
+buttonObserver.observe(backTopButtonInner);
