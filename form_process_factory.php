@@ -12,6 +12,28 @@ $mail = new PHPMailer(true);
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
 
+    $turnstileSecretKey = '0x4AAAAAABT9YwYgFdd1QdEjcoFCnOEQUOs'; // your **secret** key
+$turnstileResponse = $_POST['cf-turnstile-response-sigplast'];
+
+$verifyResponse = file_get_contents("https://challenges.cloudflare.com/turnstile/v0/siteverify", false, stream_context_create([
+    'http' => [
+        'method'  => 'POST',
+        'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+        'content' => http_build_query([
+            'secret'   => $turnstileSecretKey,
+            'response' => $turnstileResponse,
+            'remoteip' => $_SERVER['REMOTE_ADDR'] ?? null
+        ])
+    ]
+]));
+
+$captchaSuccess = json_decode($verifyResponse);
+
+if (!$captchaSuccess || !$captchaSuccess->success) {
+    die("Verificarea Turnstile a eșuat. Te rugăm să încerci din nou.");
+}
+
+
     $fullName = filter_input(INPUT_POST, 'full-name', FILTER_SANITIZE_STRING);
     $phoneNum = filter_input(INPUT_POST, 'phone-num', FILTER_SANITIZE_STRING);
     $location = filter_input(INPUT_POST, 'location', FILTER_SANITIZE_STRING);
