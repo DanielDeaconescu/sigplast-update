@@ -758,6 +758,16 @@ main hr {
   color: #fff;
 }
 
+.email-thank-you-page {
+  color: white;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.email-thank-you-page:hover {
+  color: #0d6efd;
+}
+
 /* submitted.html page styling */
 
 /* Media Queries */

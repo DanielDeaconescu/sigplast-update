@@ -32,7 +32,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->Host       = 'mail.danieldeaconescu.com';
         $mail->SMTPAuth   = true;
         $mail->Username   = 'contact@danieldeaconescu.com';
-        $mail->Password   = 'contactPassword!23';
+        $mail->Password   = 'NewPassword!23';
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
         $mail->Port       = 465; 
     
