@@ -213,3 +213,30 @@ const observeBtn = function (entries, observer) {
 const buttonObserver = new IntersectionObserver(observeBtn, options);
 
 buttonObserver.observe(backTopButtonInner);
+
+// Back-to-top button functionality
+
+function userScroll() {
+  const toTopBtn = document.querySelector(".back-top-btn");
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 50) {
+      toTopBtn.classList.add("show");
+    } else {
+      toTopBtn.classList.remove("show");
+    }
+  });
+}
+
+function scrollToTop() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+
+document.addEventListener("DOMContentLoaded", userScroll);
+
+if (document.querySelector(".back-top-btn")) {
+  document
+    .querySelector(".back-top-btn")
+    .addEventListener("click", scrollToTop);
+}
