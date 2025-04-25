@@ -12,10 +12,10 @@ $mail = new PHPMailer(true);
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    $turnstileSecretKey = '0x4AAAAAABT9YwYgFdd1QdEjcoFCnOEQUOs'; // your **secret** key
-$turnstileResponse = $_POST['cf-turnstile-response-sigplast'];
+    $turnstileSecretKey = '0x4AAAAAABT9YwYgFdd1QdEjcoFCnOEQUOs';
+    $turnstileResponse = $_POST['cf-turnstile-response-sigplast'];
 
-$verifyResponse = file_get_contents("https://challenges.cloudflare.com/turnstile/v0/siteverify", false, stream_context_create([
+    $verifyResponse = file_get_contents("https://challenges.cloudflare.com/turnstile/v0/siteverify", false, stream_context_create([
     'http' => [
         'method'  => 'POST',
         'header'  => "Content-type: application/x-www-form-urlencoded\r\n",

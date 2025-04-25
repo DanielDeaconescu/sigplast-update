@@ -655,7 +655,7 @@
             <div class="modal-body modal-body-workshop">
               <form
                 action="form_process_workshop.php"
-                method="post"
+                method="POST"
                 class="workshop_form"
               >
                 <div class="mb-3">
@@ -695,6 +695,19 @@
                   ></textarea>
                 </div>
                 <div class="mb-3 action-buttons">
+                  <div class="d-flex justify-content-center">
+                    <div
+                      class="cf-turnstile"
+                      data-sitekey="0x4AAAAAABT9YzmsZ0BkpAhg"
+                      data-callback="setTurnstileResponseSigplast2"
+                    ></div>
+                    <input
+                      type="hidden"
+                      name="cf-turnstile-response-sigplast2"
+                      id="cf-turnstile-response-sigplast2"
+                    />
+                  </div>
+
                   <input
                     type="submit"
                     value="Trimite"
@@ -831,6 +844,13 @@
     <script>
       function setTurnstileResponseSigplast(token) {
         document.getElementById("cf-turnstile-response-sigplast").value = token;
+      }
+    </script>
+
+    <script>
+      function setTurnstileResponseSigplast2(token) {
+        document.getElementById("cf-turnstile-response-sigplast2").value =
+          token;
       }
     </script>
   </body>
