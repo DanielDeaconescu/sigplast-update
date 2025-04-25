@@ -9,6 +9,13 @@
       content="Profilul PVC Sigplast este un Profil Economic si Ecologic. Performanta energetica ridicata la preturi avantajoase."
     />
 
+    <!-- Turnstile script -->
+    <script
+      src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+      async
+      defer
+    ></script>
+
     <!-- Fontawesome -->
     <script
       src="https://kit.fontawesome.com/654b63e729.js"
@@ -466,19 +473,33 @@
                     placeholder="Ex: inchidere balcon"
                   ></textarea>
                 </div>
-                <div class="mb-3 action-buttons">
-                  <input
-                    type="submit"
-                    value="Trimite"
-                    class="btn btn-success btn-send-custom"
-                  />
-                  <button
-                    type="button"
-                    class="btn btn-danger btn-cancel-custom"
-                    data-bs-dismiss="modal"
-                  >
-                    Anulează
-                  </button>
+                <div class="mb-3 action-buttons d-flex flex-column">
+                  <div class="d-flex justify-content-center">
+                    <div
+                      class="cf-turnstile"
+                      data-sitekey="0x4AAAAAABT9YzmsZ0BkpAhg"
+                      data-callback="setTurnstileResponseSigplast"
+                    ></div>
+                    <input
+                      type="hidden"
+                      name="cf-turnstile-response-sigplast"
+                      id="cf-turnstile-response-sigplast"
+                    />
+                  </div>
+                  <div class="d-flex gap-3">
+                    <input
+                      type="submit"
+                      value="Trimite"
+                      class="btn btn-success btn-send-custom"
+                    />
+                    <button
+                      type="button"
+                      class="btn btn-danger btn-cancel-custom"
+                      data-bs-dismiss="modal"
+                    >
+                      Anulează
+                    </button>
+                  </div>
                 </div>
               </form>
             </div>
@@ -540,19 +561,33 @@
                     placeholder="Ex: inchidere balcon"
                   ></textarea>
                 </div>
-                <div class="mb-3 action-buttons">
-                  <input
-                    type="submit"
-                    value="Trimite"
-                    class="btn btn-success btn-send-custom"
-                  />
-                  <button
-                    type="button"
-                    class="btn btn-danger btn-cancel-custom"
-                    data-bs-dismiss="modal"
-                  >
-                    Anulează
-                  </button>
+                <div class="mb-3 action-buttons d-flex flex-column">
+                  <div class="d-flex justify-content-center">
+                    <div
+                      class="cf-turnstile"
+                      data-sitekey="0x4AAAAAABT9YzmsZ0BkpAhg"
+                      data-callback="setTurnstileResponseSigplast2"
+                    ></div>
+                    <input
+                      type="hidden"
+                      name="cf-turnstile-response-sigplast2"
+                      id="cf-turnstile-response-sigplast2"
+                    />
+                  </div>
+                  <div class="d-flex gap-3">
+                    <input
+                      type="submit"
+                      value="Trimite"
+                      class="btn btn-success btn-send-custom"
+                    />
+                    <button
+                      type="button"
+                      class="btn btn-danger btn-cancel-custom"
+                      data-bs-dismiss="modal"
+                    >
+                      Anulează
+                    </button>
+                  </div>
                 </div>
               </form>
             </div>
