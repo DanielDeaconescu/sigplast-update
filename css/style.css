@@ -757,6 +757,10 @@ main hr {
   cursor: pointer;
 }
 
+.back-top-btn-inner {
+  color: hsl(201, 74%, 49%);
+}
+
 .show {
   opacity: 1;
 }
