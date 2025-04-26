@@ -717,8 +717,8 @@ main hr {
 
 .side-buttons-form-button {
   background-color: rgb(83, 92, 145);
-  padding: 1rem;
-  border-radius: 50%;
+  padding: 0.5rem;
+  border-radius: 5px;
   display: flex;
   justify-content: center;
   color: white;
