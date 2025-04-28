@@ -790,6 +790,27 @@ main hr {
 
 /* submitted.html page styling */
 
+/* Signature styling */
+.signature-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(68, 68, 68);
+  color: white;
+  font-size: 14px;
+  padding: 0.3rem;
+}
+
+.signature-link-custom {
+  color: rgb(254, 107, 42);
+}
+
+.signature-link-custom:hover {
+  color: rgb(254, 107, 42);
+}
+
+/* Signature styling */
+
 /* Media Queries */
 @media (max-width: 768px) {
   .padded-y {
