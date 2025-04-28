@@ -7,12 +7,16 @@ use PHPMailer\PHPMailer\Exception;
 //Load Composer's autoloader
 require 'vendor/autoload.php';
 
+// Initialize Dotenv
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+
 //Create an instance; passing `true` enables exceptions
 $mail = new PHPMailer(true);
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    $turnstileSecretKey = '0x4AAAAAABT9YwYgFdd1QdEjcoFCnOEQUOs';
+    $turnstileSecretKey = $_ENV['TURNSTILE_SECRET_KEY'];
     $turnstileResponse = $_POST['cf-turnstile-response-sigplast2'];
 
 $verifyResponse = file_get_contents("https://challenges.cloudflare.com/turnstile/v0/siteverify", false, stream_context_create([
@@ -50,16 +54,16 @@ if (!$captchaSuccess || !$captchaSuccess->success) {
 
     try {
         $mail->isSMTP();                                            
-        $mail->Host       = 'mail.danieldeaconescu.com';
+        $mail->Host       = $_ENV['SMTP_HOST'];           // Use the SMTP host from .env
         $mail->SMTPAuth   = true;
-        $mail->Username   = 'contact@danieldeaconescu.com';
-        $mail->Password   = 'NewPassword!23';
+        $mail->Username   = $_ENV['SMTP_USERNAME'];       // Use the SMTP username from .env
+        $mail->Password   = $_ENV['SMTP_PASSWORD'];       // Use the SMTP password from .env
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
-        $mail->Port       = 465; 
+        $mail->Port       = $_ENV['SMTP_PORT']; 
     
         //Recipients
-        $mail->setFrom('contact@danieldeaconescu.com', "Sigplast website");
-        $mail->addAddress('daniel.deaconescu98@gmail.com', "$name");
+        $mail->setFrom($_ENV['SMTP_USERNAME'], "Sigplast website");
+        $mail->addAddress('daniel.deaconescu98@gmail.com', "$fullName");
         $mail->CharSet = 'UTF-8';
 
         //Content

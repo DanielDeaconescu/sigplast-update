@@ -3,7 +3,7 @@
         'name' => 'daniel/send_email_recap',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '8f8f5524e19e059cdc62696c39e2bfa82f0710c5',
+        'reference' => 'c3072e7209b989ae134567631dbeaff3222d4466',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'daniel/send_email_recap' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '8f8f5524e19e059cdc62696c39e2bfa82f0710c5',
+            'reference' => 'c3072e7209b989ae134567631dbeaff3222d4466',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
