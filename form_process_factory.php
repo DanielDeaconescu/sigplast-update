@@ -15,6 +15,9 @@ $dotenv->load();
 //Create an instance; passing `true` enables exceptions
 $mail = new PHPMailer(true);
 
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Captcha verification (no changes here)
     $turnstileSecretKey = '0x4AAAAAABT9YwYgFdd1QdEjcoFCnOEQUOs';
