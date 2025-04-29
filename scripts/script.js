@@ -110,7 +110,6 @@ cancelFormBtn.forEach((cancelButton) =>
   cancelButton.addEventListener("click", resetForm)
 );
 
-// closeFormButton.addEventListener("click", resetForm);
 closeFormButton.forEach((closeButton) => {
   closeButton.addEventListener("click", resetForm);
 });
@@ -119,9 +118,6 @@ document.addEventListener("click", function (e) {
   if (e.target.classList.contains("modal")) resetForm();
 });
 
-// overlay.addEventListener("click", function (e) {
-//   console.log(e);
-// });
 document.addEventListener("keydown", function (e) {
   if (e.key === "Escape") closeForm();
 });
