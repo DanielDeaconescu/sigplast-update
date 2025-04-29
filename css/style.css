@@ -703,7 +703,7 @@ main hr {
 .message-form-inner::after {
   content: "";
   position: absolute;
-  bottom: 5%;
+  bottom: 60%;
   right: 3rem;
   transform: translateY(-50%);
   border-top: 10px solid transparent;
