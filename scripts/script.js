@@ -221,13 +221,13 @@ document.getElementById("factoryForm").addEventListener("submit", function (e) {
 
   // Validate full name
   if (fullName.value.trim() === "") {
-    fullNameError.textContent = 'Câmpul "Nume complet" este obligatoriu.';
+    fullNameError.textContent = 'Câmpul "Nume complet" este obligatoriu!';
     valid = false;
   }
 
   // Validate phone number
   if (phoneNum.value.trim() === "") {
-    phoneNumError.textContent = 'Câmpul "Număr de telefon" este obligatoriu.';
+    phoneNumError.textContent = 'Câmpul "Număr de telefon" este obligatoriu!';
     valid = false;
   }
 
