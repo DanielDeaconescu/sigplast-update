@@ -11,6 +11,10 @@ body {
   overflow-x: hidden;
 }
 
+:root {
+  --blue-logo: hsl(201, 73%, 49%);
+}
+
 .navbar .nav-link {
   font-size: 14px;
   text-transform: uppercase;
@@ -31,6 +35,11 @@ body {
 
 #main-footer {
   background-color: #000 !important;
+}
+
+.navbar-custom {
+  border-bottom: 4px solid var(--blue-logo);
+  padding: 0 !important;
 }
 
 /* Cookie section */
