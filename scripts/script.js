@@ -235,8 +235,5 @@ document.getElementById("factoryForm").addEventListener("submit", function (e) {
   // Prevent submission if form not valid
   if (!valid) {
     e.preventDefault();
-  } else {
-    e.preventDefault();
-    document.getElementById("factoryForm").reset();
   }
 });
