@@ -206,7 +206,6 @@ formButton.addEventListener("mouseleave", function () {
 });
 
 // Factory Form Validation
-
 document.getElementById("factoryForm").addEventListener("submit", function (e) {
   let valid = true;
 
@@ -237,3 +236,38 @@ document.getElementById("factoryForm").addEventListener("submit", function (e) {
     e.preventDefault();
   }
 });
+
+// Workshop Form Validation
+
+document
+  .getElementById("workshopForm")
+  .addEventListener("submit", function (e) {
+    let valid = true;
+
+    const fullName = document.getElementById("workshopFullName");
+    const phoneNum = document.getElementById("workshopPhoneNum");
+    const fullNameError = document.getElementById("workshopFullNameError");
+    const phoneNumError = document.getElementById("workshopPhoneNumError");
+
+    // Clear previous errors
+    fullNameError.textContent = "";
+    phoneNumError.textContent = "";
+
+    // Validate full name
+    if (fullName.value.trim() === "") {
+      fullNameError.textContent = 'Câmpul "Nume complet" este obligatoriu.';
+      valid = false;
+    }
+
+    // Validate phone number
+
+    if (phoneNum.value.trim() === "") {
+      phoneNumError.textContent = 'Câmpul "Număr de telefon" este obligatoriu.';
+      valid = false;
+    }
+
+    // If not valid, prevent submission
+    if (!valid) {
+      e.preventDefault();
+    }
+  });

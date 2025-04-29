@@ -619,25 +619,32 @@
                 action="form_process_workshop.php"
                 method="POST"
                 class="workshop_form"
+                id="workshopForm"
               >
                 <div class="mb-3">
-                  <label for="" class="form-label">Nume complet:</label>
+                  <label for="workshopFullName" class="form-label"
+                    >Nume complet:</label
+                  >
                   <input
                     type="text"
                     name="full-name"
+                    id="workshopFullName"
                     class="form-control"
                     required
                   />
+                  <div class="text-danger" id="workshopFullNameError"></div>
                 </div>
                 <div class="mb-3">
                   <label for="">Număr de telefon:</label>
                   <input
                     type="tel"
                     name="phone-num"
+                    id="workshopPhoneNum"
                     class="form-control"
                     placeholder="0755404218"
                     required
                   />
+                  <div class="text-danger" id="workshopPhoneNumError"></div>
                 </div>
                 <div class="mb-3">
                   <label for="">Localitatea:</label>
