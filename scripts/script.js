@@ -126,12 +126,6 @@ document.addEventListener("keydown", function (e) {
   if (e.key === "Escape") closeForm();
 });
 
-workshopForm.addEventListener("submit", function () {
-  setTimeout(() => {
-    resetForm();
-  }, 100);
-});
-
 // close the navigation when clicking outside of it
 document.addEventListener("click", function (e) {
   if (!navigation.contains(e.target)) {
@@ -142,16 +136,6 @@ document.addEventListener("click", function (e) {
     document.querySelector(".navbar-toggler").classList.add("collapsed");
   }
 });
-
-// formFactoryBtn.addEventListener("click", function () {
-//   initialDisplay.classList.add("d-none");
-//   factoryForm.classList.remove("d-none");
-// });
-
-// formWorkshopBtn.addEventListener("click", function () {
-//   initialDisplay.classList.add("d-none");
-//   workshopForm.classList.remove("d-none");
-// });
 
 // function that opens a form based on a given input
 const openForm = function (formType) {
@@ -219,4 +203,37 @@ formButton.addEventListener("mouseleave", function () {
   document
     .querySelector(".message-form-inner")
     .classList.add("message-form-inner-hidden");
+});
+
+// Factory Form Validation
+
+document.getElementById("factoryForm").addEventListener("submit", function (e) {
+  let valid = true;
+
+  // Get elements
+  const fullName = document.getElementById("fullName");
+  const phoneNum = document.getElementById("phoneNum");
+  const fullNameError = document.getElementById("fullNameError");
+  const phoneNumError = document.getElementById("phoneNumError");
+
+  // Clear previous messages
+  fullNameError.textContent = "";
+  phoneNumError.textContent = "";
+
+  // Validate full name
+  if (fullName.value.trim() === "") {
+    fullNameError.textContent = 'Câmpul "Nume complet" este obligatoriu.';
+    valid = false;
+  }
+
+  // Validate phone number
+  if (phoneNum.value.trim() === "") {
+    phoneNumError.textContent = 'Câmpul "Număr de telefon" este obligatoriu.';
+    valid = false;
+  }
+
+  // Prevent submission if form not valid
+  if (!valid) {
+    e.preventDefault();
+  }
 });

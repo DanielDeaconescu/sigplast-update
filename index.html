@@ -528,25 +528,28 @@
                 action="form_process_factory.php"
                 method="POST"
                 class="factory_form"
+                id="factoryForm"
               >
                 <div class="mb-3">
                   <label for="" class="form-label">Nume complet:</label>
                   <input
                     type="text"
                     name="full-name"
+                    id="fullName"
                     class="form-control"
-                    required
                   />
+                  <div class="text-danger" id="fullNameError"></div>
                 </div>
                 <div class="mb-3">
                   <label for="">Număr de telefon:</label>
                   <input
                     type="tel"
                     name="phone-num"
+                    id="phoneNum"
                     class="form-control"
                     placeholder="0755404218"
-                    required
                   />
+                  <div class="text-danger" id="phoneNumError"></div>
                 </div>
                 <div class="mb-3">
                   <label for="">Localitatea:</label>
