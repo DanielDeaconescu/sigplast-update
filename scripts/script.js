@@ -77,51 +77,6 @@ setTimeout(() => {
   }
 }, 2000);
 
-// form functionality
-
-const toggleForm = function () {
-  formContainer.classList.toggle("no-display");
-  overlay.classList.toggle("no-display");
-};
-
-const closeForm = function () {
-  formContainer.classList.add("no-display");
-  overlay.classList.add("no-display");
-};
-
-// function that closes a form based on a value
-const closeFormParticular = function (formType) {
-  if (formType === "factory") factoryForm.classList.add("d-none");
-  if (formType === "workshop") workshopForm.classList.add("d-none");
-};
-
-const resetForm = function () {
-  workshopFormInner.reset();
-  factoryFormInner.reset();
-  // make sure both forms are closed
-  closeFormParticular("factory");
-  closeFormParticular("workshop");
-
-  // display inital screen of the form
-  initialDisplay.classList.remove("d-none");
-};
-
-cancelFormBtn.forEach((cancelButton) =>
-  cancelButton.addEventListener("click", resetForm)
-);
-
-closeFormButton.forEach((closeButton) => {
-  closeButton.addEventListener("click", resetForm);
-});
-
-document.addEventListener("click", function (e) {
-  if (e.target.classList.contains("modal")) resetForm();
-});
-
-document.addEventListener("keydown", function (e) {
-  if (e.key === "Escape") closeForm();
-});
-
 // close the navigation when clicking outside of it
 document.addEventListener("click", function (e) {
   if (!navigation.contains(e.target)) {
@@ -199,6 +154,58 @@ formButton.addEventListener("mouseleave", function () {
   document
     .querySelector(".message-form-inner")
     .classList.add("message-form-inner-hidden");
+});
+
+// form functionality
+
+const toggleForm = function () {
+  formContainer.classList.toggle("no-display");
+  overlay.classList.toggle("no-display");
+};
+
+const closeForm = function () {
+  formContainer.classList.add("no-display");
+  overlay.classList.add("no-display");
+};
+
+// function that closes a form based on a value
+const closeFormParticular = function (formType) {
+  if (formType === "factory") factoryForm.classList.add("d-none");
+  if (formType === "workshop") workshopForm.classList.add("d-none");
+};
+
+const resetForm = function () {
+  workshopFormInner.reset();
+  factoryFormInner.reset();
+  // make sure both forms are closed
+  closeFormParticular("factory");
+  closeFormParticular("workshop");
+
+  // Clear the error messages
+  const fullNameError = document.getElementById("fullNameError");
+  const phoneNumError = document.getElementById("phoneNumError");
+
+  fullNameError.textContent = "";
+  phoneNumError.textContent = "";
+
+  // display inital screen of the form
+  initialDisplay.classList.remove("d-none");
+};
+
+cancelFormBtn.forEach((cancelButton) =>
+  cancelButton.addEventListener("click", resetForm)
+);
+
+closeFormButton.forEach((closeButton) => {
+  closeButton.addEventListener("click", resetForm);
+});
+
+document.addEventListener("click", function (e) {
+  if (e.target.classList.contains("modal")) resetForm();
+});
+
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Escape") closeForm();
 });
 
 // Factory Form Validation
