@@ -823,6 +823,26 @@ main hr {
 
 /* Signature styling */
 
+/* Styling the WhatsApp modal start */
+
+.modal-custom {
+  z-index: 1060;
+}
+
+.whatsapp-icon-custom {
+  color: #25d366;
+}
+
+.whatsapp-link {
+  transition: all 0.3s ease-in-out;
+}
+
+.whatsapp-link:hover {
+  transform: scale(1.1);
+}
+
+/* Styling the WhatsApp modal end */
+
 /* Media Queries */
 @media (max-width: 768px) {
   .padded-y {

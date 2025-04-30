@@ -697,6 +697,69 @@
         </div>
       </div>
     </div>
+
+    <!-- WhatsApp Modal -->
+    <div
+      class="modal fade modal-custom"
+      id="whatsappModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">
+              Cu cine vrei să vorbești?
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="d-flex justify-content-center align-items-center gap-4">
+              <div>
+                <a
+                  class="d-flex align-items-center text-decoration-none text-dark whatsapp-link"
+                  href="https://api.whatsapp.com/send?phone=400751328081"
+                  target="_blank"
+                >
+                  WhatsApp Fabrică
+                  <i
+                    class="fab fa-whatsapp-square whatsapp-icon-custom fa-3x ms-2"
+                  ></i>
+                </a>
+              </div>
+              <div>
+                <a
+                  class="d-flex align-items-center text-decoration-none text-dark whatsapp-link"
+                  href="https://api.whatsapp.com/send?phone=400745628606"
+                  target="_blank"
+                >
+                  WhatsApp Atelier
+                  <i
+                    class="fab fa-whatsapp-square whatsapp-icon-custom fa-3x ms-2"
+                  ></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-bs-dismiss="modal"
+            >
+              Închide
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Modal with Form -->
 
     <!-- Back to top button -->
@@ -728,6 +791,8 @@
             class="side-buttons-whatsapp-link"
             href="https://api.whatsapp.com/send?phone=400751328081"
             target="_blank"
+            data-bs-toggle="modal"
+            data-bs-target="#whatsappModal"
           >
             <i class="fab fa-whatsapp-square fa-3x"></i>
           </a>

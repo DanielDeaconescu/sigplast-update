@@ -22,6 +22,47 @@ const sideButtons = document.querySelector(".side-buttons");
 const newsletter = document.getElementById("newsletter");
 const backTopButtonInner = document.querySelector(".back-top-btn-inner");
 
+// Back-to-top button functionality start
+
+function userScroll() {
+  const toTopBtn = document.querySelector(".back-top-btn");
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 50) {
+      toTopBtn.classList.add("show");
+    } else {
+      toTopBtn.classList.remove("show");
+    }
+  });
+}
+
+function scrollToTop() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+
+document.addEventListener("DOMContentLoaded", userScroll);
+
+if (document.querySelector(".back-top-btn")) {
+  document
+    .querySelector(".back-top-btn")
+    .addEventListener("click", scrollToTop);
+}
+
+// Back to top functionality end
+
+// close navigation by clicking outside start
+document.addEventListener("click", function (e) {
+  if (!navigation.contains(e.target)) {
+    document.querySelector("#navbarNav").classList.remove("show");
+    document
+      .querySelector(".navbar-toggler")
+      .setAttribute("aria-expanded", "false");
+    document.querySelector(".navbar-toggler").classList.add("collapsed");
+  }
+});
+// close navigation by clicking outside end
+
 function isElementInViewport(el) {
   if (typeof jQuery === "function" && el instanceof jQuery) {
     el = el[0];
@@ -77,17 +118,6 @@ setTimeout(() => {
   }
 }, 2000);
 
-// close the navigation when clicking outside of it
-document.addEventListener("click", function (e) {
-  if (!navigation.contains(e.target)) {
-    document.querySelector("#navbarNav").classList.remove("show");
-    document
-      .querySelector(".navbar-toggler")
-      .setAttribute("aria-expanded", "false");
-    document.querySelector(".navbar-toggler").classList.add("collapsed");
-  }
-});
-
 // function that opens a form based on a given input
 const openForm = function (formType) {
   if (formType === "factory") {
@@ -116,33 +146,6 @@ formInitialButtonsContainer.addEventListener("click", function (e) {
     openForm("workshop");
   }
 });
-
-// Back-to-top button functionality
-
-function userScroll() {
-  const toTopBtn = document.querySelector(".back-top-btn");
-
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 50) {
-      toTopBtn.classList.add("show");
-    } else {
-      toTopBtn.classList.remove("show");
-    }
-  });
-}
-
-function scrollToTop() {
-  document.body.scrollTop = 0;
-  document.documentElement.scrollTop = 0;
-}
-
-document.addEventListener("DOMContentLoaded", userScroll);
-
-if (document.querySelector(".back-top-btn")) {
-  document
-    .querySelector(".back-top-btn")
-    .addEventListener("click", scrollToTop);
-}
 
 formButton.addEventListener("mouseenter", function () {
   document
@@ -203,6 +206,8 @@ closeFormButton.forEach((closeButton) => {
 document.addEventListener("click", function (e) {
   if (e.target.classList.contains("modal")) resetForm();
 });
+
+// close the form with the "Esc" button
 
 document.addEventListener("keydown", function (e) {
   if (e.key === "Escape") closeForm();
