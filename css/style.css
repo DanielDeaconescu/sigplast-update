@@ -788,6 +788,23 @@ main hr {
   opacity: 1;
 }
 
+.whatsapp-link-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  aspect-ratio: 1/1;
+  background-color: #66d2ce;
+  border-radius: 50%;
+  padding: 1.5rem;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  max-width: 180px;
+}
+
+.whatsapp-link-container:hover {
+  transform: scale(1.1);
+}
+
 /* Side-buttons styling */
 
 /* submitted.html page styling */
@@ -841,15 +858,7 @@ main hr {
 }
 
 .whatsapp-icon-custom {
-  color: #25d366;
-}
-
-.whatsapp-link {
-  transition: all 0.3s ease-in-out;
-}
-
-.whatsapp-link:hover {
-  transform: scale(1.1);
+  color: #075e54;
 }
 
 /* Styling the WhatsApp modal end */
