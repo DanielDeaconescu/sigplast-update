@@ -9,7 +9,10 @@
 body {
   font-family: "Be Vietnam Pro", sans-serif;
   overflow-x: hidden;
-  position: relative;
+}
+
+:root {
+  --blue-logo: hsl(201, 73%, 49%);
 }
 
 .navbar .nav-link {
@@ -32,6 +35,11 @@ body {
 
 #main-footer {
   background-color: #000 !important;
+}
+
+.navbar-custom {
+  border-bottom: 4px solid var(--blue-logo);
+  padding: 0 !important;
 }
 
 /* Cookie section */
@@ -112,6 +120,10 @@ body {
 /* General Styles ends*/
 
 /* Index Page starts */
+.carousel-control-next {
+  z-index: 0;
+}
+
 .carousel-item {
   height: 450px;
 }
@@ -699,7 +711,7 @@ main hr {
 .message-form-inner::after {
   content: "";
   position: absolute;
-  bottom: 5%;
+  bottom: 60%;
   right: 3rem;
   transform: translateY(-50%);
   border-top: 10px solid transparent;
@@ -815,6 +827,26 @@ main hr {
 }
 
 /* Signature styling */
+
+/* Styling the WhatsApp modal start */
+
+.modal-custom {
+  z-index: 1060;
+}
+
+.whatsapp-icon-custom {
+  color: #25d366;
+}
+
+.whatsapp-link {
+  transition: all 0.3s ease-in-out;
+}
+
+.whatsapp-link:hover {
+  transform: scale(1.1);
+}
+
+/* Styling the WhatsApp modal end */
 
 /* Media Queries */
 @media (max-width: 768px) {

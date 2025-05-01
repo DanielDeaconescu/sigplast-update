@@ -398,10 +398,11 @@
               formă bombată).
             </p>
             <a
-              href="https://docs.google.com/forms/d/e/1FAIpQLScNHjdXfmIdKxhAuCjpsauXLyCDphGZ_E7em2CO3YWLFYDsCw/viewform?usp=sf_link"
               target="_blank"
               class="btn btn-success"
-              >Obține Ofertă</a
+              data-bs-toggle="modal"
+              data-bs-target="#modalForm"
+              >Obține o ofertă</a
             >
           </div>
         </div>
@@ -447,51 +448,6 @@
         </div>
       </div>
     </footer>
-
-    <!-- <div class="container form-container no-display">
-      <button class="form-close-button">
-        <i class="fa-solid fa-x"></i>
-      </button>
-      <div class="form-inner">
-        <form action="form_process.php" method="post" class="workshop_form">
-          <div class="mb-3">
-            <label for="" class="form-label">Nume complet:</label>
-            <input type="text" name="full-name" class="form-control" required />
-          </div>
-          <div class="mb-3">
-            <label for="">Numar de telefon:</label>
-            <input
-              type="tel"
-              name="phone-num"
-              class="form-control"
-              placeholder="0755 404 218"
-              required
-            />
-          </div>
-          <div class="mb-3">
-            <label for="">Localitatea:</label>
-            <input type="text" name="location" class="form-control" />
-          </div>
-          <div class="mb-3">
-            <label for="">Email:</label>
-            <input type="email" name="email" class="form-control" />
-          </div>
-          <div class="mb-3">
-            <label for="">Descriere comanda:</label>
-            <textarea
-              name="order-description"
-              id=""
-              class="form-control"
-              placeholder="Ex: inchidere balcon"
-            ></textarea>
-          </div>
-          <div class="mb-3">
-            <input type="submit" value="Trimite" class="btn btn-primary" />
-          </div>
-        </form>
-      </div>
-    </div> -->
-
     <!-- Modal with Form -->
     <div
       class="modal fade"
@@ -553,16 +509,6 @@
               </div>
             </div>
           </div>
-
-          <!-- Initial Display -->
-          <!-- <div class="modal-footer">
-            <h5>Info</h5>
-            <p>Selecteză Fabrica Sigplast pentru profilul PVC Sigplast.</p>
-            <p>
-              Selecteză Atelier pentru realizare lucrări tâmplărie PVC și
-              Aluminiu. Clienți finali și dealeri.
-            </p>
-          </div> -->
           <!-- Factory Form -->
           <div class="factory-form d-none">
             <div class="modal-header modal-header-workshop">
@@ -582,25 +528,28 @@
                 action="form_process_factory.php"
                 method="POST"
                 class="factory_form"
+                id="factoryForm"
               >
                 <div class="mb-3">
                   <label for="" class="form-label">Nume complet:</label>
                   <input
                     type="text"
                     name="full-name"
+                    id="fullName"
                     class="form-control"
-                    required
                   />
+                  <div class="text-danger" id="fullNameError"></div>
                 </div>
                 <div class="mb-3">
                   <label for="">Număr de telefon:</label>
                   <input
                     type="tel"
                     name="phone-num"
+                    id="phoneNum"
                     class="form-control"
                     placeholder="0755404218"
-                    required
                   />
+                  <div class="text-danger" id="phoneNumError"></div>
                 </div>
                 <div class="mb-3">
                   <label for="">Localitatea:</label>
@@ -670,25 +619,30 @@
                 action="form_process_workshop.php"
                 method="POST"
                 class="workshop_form"
+                id="workshopForm"
               >
                 <div class="mb-3">
-                  <label for="" class="form-label">Nume complet:</label>
+                  <label for="workshopFullName" class="form-label"
+                    >Nume complet:</label
+                  >
                   <input
                     type="text"
                     name="full-name"
+                    id="workshopFullName"
                     class="form-control"
-                    required
                   />
+                  <div class="text-danger" id="workshopFullNameError"></div>
                 </div>
                 <div class="mb-3">
                   <label for="">Număr de telefon:</label>
                   <input
                     type="tel"
                     name="phone-num"
+                    id="workshopPhoneNum"
                     class="form-control"
                     placeholder="0755404218"
-                    required
                   />
+                  <div class="text-danger" id="workshopPhoneNumError"></div>
                 </div>
                 <div class="mb-3">
                   <label for="">Localitatea:</label>
@@ -743,6 +697,69 @@
         </div>
       </div>
     </div>
+
+    <!-- WhatsApp Modal -->
+    <div
+      class="modal fade modal-custom"
+      id="whatsappModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">
+              Cu cine vrei să vorbești?
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="d-flex justify-content-center align-items-center gap-4">
+              <div>
+                <a
+                  class="d-flex align-items-center text-decoration-none text-dark whatsapp-link"
+                  href="https://api.whatsapp.com/send?phone=400751328081"
+                  target="_blank"
+                >
+                  WhatsApp Fabrică
+                  <i
+                    class="fab fa-whatsapp-square whatsapp-icon-custom fa-3x ms-2"
+                  ></i>
+                </a>
+              </div>
+              <div>
+                <a
+                  class="d-flex align-items-center text-decoration-none text-dark whatsapp-link"
+                  href="https://api.whatsapp.com/send?phone=400745628606"
+                  target="_blank"
+                >
+                  WhatsApp Atelier
+                  <i
+                    class="fab fa-whatsapp-square whatsapp-icon-custom fa-3x ms-2"
+                  ></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-bs-dismiss="modal"
+            >
+              Închide
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Modal with Form -->
 
     <!-- Back to top button -->
@@ -754,17 +771,6 @@
 
     <!-- Side buttons: Form, Whatsapp -->
     <div class="side-buttons">
-      <div class="whatsapp-container">
-        <div class="whatsapp-container-inner">
-          <a
-            class="side-buttons-whatsapp-link"
-            href="https://api.whatsapp.com/send?phone=400751328081"
-            target="_blank"
-          >
-            <i class="fab fa-whatsapp-square fa-3x"></i>
-          </a>
-        </div>
-      </div>
       <div class="message-form-btn">
         <div class="message-form-inner message-form-inner-hidden">
           Completează formular
@@ -777,6 +783,20 @@
         >
           <i class="fa-regular fa-message fa-2x"></i>
         </button>
+      </div>
+
+      <div class="whatsapp-container">
+        <div class="whatsapp-container-inner">
+          <a
+            class="side-buttons-whatsapp-link"
+            href="https://api.whatsapp.com/send?phone=400751328081"
+            target="_blank"
+            data-bs-toggle="modal"
+            data-bs-target="#whatsappModal"
+          >
+            <i class="fab fa-whatsapp-square fa-3x"></i>
+          </a>
+        </div>
       </div>
     </div>
 
