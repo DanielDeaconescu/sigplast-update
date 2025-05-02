@@ -39,8 +39,20 @@ body {
 }
 
 .navbar-custom {
+  position: relative;
   border-bottom: 4px solid var(--blue-logo);
   padding: 0 !important;
+  height: 85px;
+}
+
+.nav-link {
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.nav-link:hover {
+  background-color: var(--blue-logo);
+  color: white !important;
 }
 
 /* Cookie section */
@@ -189,7 +201,7 @@ body {
 }
 
 #showcase {
-  margin-top: 5em;
+  /* margin-top: 5em; */
 }
 
 /* INFO SECTION */
