@@ -740,11 +740,77 @@
         <div class="whatsapp-container-inner">
           <a
             class="side-buttons-whatsapp-link"
-            href="https://api.whatsapp.com/send?phone=400751328081"
+            href="#"
             target="_blank"
+            data-bs-toggle="modal"
+            data-bs-target="#whatsappModal"
           >
             <i class="fab fa-whatsapp-square fa-3x"></i>
           </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- WhatsApp Modal -->
+    <div
+      class="modal fade modal-custom"
+      id="whatsappModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">
+              Cu cine doriți să vorbiți?
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="d-flex justify-content-center align-items-center gap-4">
+              <div
+                class="d-flex flex-column align-items-center justify-content-center whatsapp-link-container"
+              >
+                <a
+                  class="d-flex flex-column gap-2 justify-content-center align-items-center text-decoration-none text-dark whatsapp-link"
+                  href="https://api.whatsapp.com/send?phone=400751328081"
+                  target="_blank"
+                >
+                  <i
+                    class="fab fa-whatsapp-square whatsapp-icon-custom fa-3x"
+                  ></i>
+                  <div class="text-center">WhatsApp Fabrică</div>
+                </a>
+              </div>
+              <div class="whatsapp-link-container">
+                <a
+                  class="d-flex flex-column gap-2 align-items-center text-decoration-none text-dark whatsapp-link"
+                  href="https://api.whatsapp.com/send?phone=400745628606"
+                  target="_blank"
+                >
+                  <i
+                    class="fab fa-whatsapp-square whatsapp-icon-custom fa-3x ms-2"
+                  ></i>
+                  <div class="text-center">WhatsApp Atelier</div>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-bs-dismiss="modal"
+            >
+              Închide
+            </button>
+          </div>
         </div>
       </div>
     </div>
