@@ -32,14 +32,16 @@ if (!isset($submissions[$ip])) {
 }
 
 if ($submissions[$ip]['count'] >= $limit) {
-    http_response_code(429);
-    header('Location: too-many-submissions.html');
+    session_start();
+    $_SESSION['rate_limited'] = true;
+    header('Location: too-many-submissions.php');
     exit();
 }
 
 // Increment and save
 $submissions[$ip]['count']++;
 file_put_contents($logFile, json_encode($submissions));
+
 // === End Rate Limiting ===
 
 $mail = new PHPMailer(true);
@@ -106,7 +108,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         ";
     
         $mail->send();
-        header('Location: submitted.html');
+        session_start();
+        $_SESSION['form_submitted'] = true;
+        header('Location: submitted.php');
+        exit();
     } catch (Exception $e) {
         echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
     }

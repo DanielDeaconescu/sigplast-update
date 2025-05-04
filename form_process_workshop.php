@@ -11,6 +11,37 @@ require 'vendor/autoload.php';
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 
+// Rate limiting
+$ip = $_SERVER['REMOTE_ADDR'];
+$limit = 2;
+$duration = 3600;
+$logFile = __DIR__ . '/submission_log2.json';
+
+$submissions = file_exists($logFile) ? json_decode(file_get_contents($logFile), true) : [];
+
+// Clean up old entries
+foreach ($submissions as $loggedIp => $data) {
+    if(time() - $data['first_time'] > $duration) {
+        unset($submissions[$loggedIp]);
+    }
+}
+
+// Check current IP
+if (!isset($submissions[$ip])) {
+    $submissions[$ip] = ['count' => 0, 'first_time' => time()];
+}
+
+if($submissions[$ip]['count'] >= $limit) {
+    session_start();
+    $_SESSION['rate_limited'] = true;
+    header('Location: too-many-submissions.php');
+    exit();
+}
+
+// Increment and save
+$submissions[$ip]['count']++;
+file_put_contents($logFile, json_encode($submissions));
+
 //Create an instance; passing `true` enables exceptions
 $mail = new PHPMailer(true);
 
@@ -91,7 +122,9 @@ if (!$captchaSuccess || !$captchaSuccess->success) {
         // $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
     
         $mail->send();
-        header('Location: submitted.html');
+        session_start();
+        $_SESSION['form_submitted'] = true;
+        header('Location: submitted.php');
     } catch (Exception $e) {
         echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
     }
