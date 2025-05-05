@@ -97,7 +97,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->CharSet = 'UTF-8';
 
         $mail->isHTML(true);
-        $mail->Subject = 'Formular Fabrică ' . $fullName;
+        $mail->Subject = 'Formular Fabrică ' . $fullName . ' ' . date('d-m-Y H:i:s');
         $mail->Body    = "
             <h3>Informatii Comanda Fabrică</h3>
             <div><p>Nume: <strong>$fullName</strong></p></div>

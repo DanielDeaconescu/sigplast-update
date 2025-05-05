@@ -99,7 +99,7 @@ if (!$captchaSuccess || !$captchaSuccess->success) {
 
         //Content
         $mail->isHTML(true);
-        $mail->Subject = 'Formular Atelier ' . $fullName;
+        $mail->Subject = 'Formular Atelier ' . $fullName . ' ' . date('d-m-Y H:i:s');;
         $mail->Body    = "
             <h3>Informatii Comanda Atelier</h3>
             <div>
