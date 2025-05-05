@@ -3,6 +3,7 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
+date_default_timezone_set('Europe/Bucharest');
 
 // Load Composer's autoloader
 require 'vendor/autoload.php';
@@ -99,7 +100,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->isHTML(true);
         $mail->Subject = 'Formular Fabrică ' . $fullName . ' ' . date('d-m-Y H:i:s');
         $mail->Body    = "
-            <h3>Informatii Comanda Fabrică</h3>
+            <h3>Informatii Comandă Fabrică</h3>
             <div><p>Nume: <strong>$fullName</strong></p></div>
             <div><p>Numar de telefon: <strong>$phoneNum</strong></p></div>
             <div><p>Localitate: <strong>$location</strong></p></div>

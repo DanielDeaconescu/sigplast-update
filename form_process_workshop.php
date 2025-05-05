@@ -3,6 +3,7 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
+date_default_timezone_set('Europe/Bucharest');
 
 //Load Composer's autoloader
 require 'vendor/autoload.php';
