@@ -15,7 +15,7 @@ $dotenv->load();
 // Rate limiting
 $ip = $_SERVER['REMOTE_ADDR'];
 $limit = 2;
-$duration = 3600;
+$duration = 86400;
 $logFile = __DIR__ . '/submission_log2.json';
 
 $submissions = file_exists($logFile) ? json_decode(file_get_contents($logFile), true) : [];

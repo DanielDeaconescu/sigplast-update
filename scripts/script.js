@@ -220,8 +220,10 @@ document.getElementById("factoryForm").addEventListener("submit", function (e) {
   // Get elements
   const fullName = document.getElementById("fullName");
   const phoneNum = document.getElementById("phoneNum");
+  const factoryLocation = document.getElementById("factoryLocation");
   const fullNameError = document.getElementById("fullNameError");
   const phoneNumError = document.getElementById("phoneNumError");
+  const factoryLocationError = document.getElementById("factoryLocationError");
 
   const fileInput = document.getElementById("file-upload");
   const file = fileInput.files[0];
@@ -241,6 +243,12 @@ document.getElementById("factoryForm").addEventListener("submit", function (e) {
   // Validate phone number
   if (phoneNum.value.trim() === "") {
     phoneNumError.textContent = 'Câmpul "Număr de telefon" este obligatoriu!';
+    valid = false;
+  }
+
+  // Validate location
+  if (factoryLocation.value.trim() === "") {
+    factoryLocationError.textContent = 'Câmpul "Localitate" este obligatoriu!';
     valid = false;
   }
 
@@ -324,7 +332,6 @@ document
   });
 
 // Upload a file functionality
-
 const fileInput = document.getElementById("file-upload");
 const fileName = document.getElementById("file-name");
 

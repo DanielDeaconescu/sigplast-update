@@ -14,8 +14,8 @@ $dotenv->load();
 
 // === IP Rate Limiting Logic ===
 $ip = $_SERVER['REMOTE_ADDR'];
-$limit = 2; // Max allowed submissions per IP
-$duration = 3600; // Time window in seconds (e.g., 1 hour)
+$limit = 2; 
+$duration = 86400; 
 $logFile = __DIR__ . '/submission_log.json';
 
 $submissions = file_exists($logFile) ? json_decode(file_get_contents($logFile), true) : [];
