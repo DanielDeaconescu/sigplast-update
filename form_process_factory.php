@@ -52,6 +52,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $turnstileSecretKey = $_ENV['TURNSTILE_SECRET_KEY'];
     $turnstileResponse = $_POST['cf-turnstile-response-sigplast'];
 
+    if (!isset($_POST['cf-turnstile-response-sigplast'])) {
+        die("No Turnstile response received.");
+    }
+
     $verifyResponse = file_get_contents("https://challenges.cloudflare.com/turnstile/v0/siteverify", false, stream_context_create([
         'http' => [
             'method'  => 'POST',
@@ -63,7 +67,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             ])
         ]
     ]));
-
+    var_dump($verifyResponse);
     $captchaSuccess = json_decode($verifyResponse);
 
     if (!$captchaSuccess || !$captchaSuccess->success) {
