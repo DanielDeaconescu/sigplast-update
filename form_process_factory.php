@@ -51,7 +51,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $turnstileSecretKey = $_ENV['TURNSTILE_SECRET_KEY'];
     
-    $turnstileResponse = $_POST['cf-turnstile-response'] ?? null;
+    $turnstileResponse = $_POST['cf-turnstile-response-sigplast'] ?? null;
 
 if (!$turnstileResponse) {
     die("No Turnstile response received.");
