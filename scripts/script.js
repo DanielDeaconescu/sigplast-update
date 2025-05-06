@@ -187,9 +187,17 @@ const resetForm = function () {
   // Clear the error messages
   const fullNameError = document.getElementById("fullNameError");
   const phoneNumError = document.getElementById("phoneNumError");
+  const factoryLocationError = document.getElementById("factoryLocationError");
+  const workshopLocationError = document.getElementById(
+    "workshopLocationError"
+  );
+  const fileError = document.getElementById("fileError");
 
   fullNameError.textContent = "";
   phoneNumError.textContent = "";
+  factoryLocationError.textContent = "";
+  workshopLocationError.textContent = "";
+  fileError.textContent = "";
 
   // display inital screen of the form
   initialDisplay.classList.remove("d-none");
