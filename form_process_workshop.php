@@ -51,17 +51,21 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $turnstileSecretKey = $_ENV['TURNSTILE_SECRET_KEY'];
     $turnstileResponse = $_POST['cf-turnstile-response-sigplast2'];
 
-$verifyResponse = file_get_contents("https://challenges.cloudflare.com/turnstile/v0/siteverify", false, stream_context_create([
-    'http' => [
-        'method'  => 'POST',
-        'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
-        'content' => http_build_query([
-            'secret'   => $turnstileSecretKey,
-            'response' => $turnstileResponse,
-            'remoteip' => $_SERVER['REMOTE_ADDR'] ?? null
-        ])
-    ]
-]));
+    if (!$turnstileResponse) {
+        die("Nu am primit raspuns de la Turnstile.");
+    }
+
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, "https://challenges.cloudflare.com/turnstile/v0/siteverify");
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query([
+        'secret'   => $turnstileSecretKey,
+        'response' => $turnstileResponse,
+        'remoteip' => $_SERVER['REMOTE_ADDR'] ?? null
+    ]));
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    $verifyResponse = curl_exec($ch);
+    curl_close($ch);
 
 $captchaSuccess = json_decode($verifyResponse);
 
