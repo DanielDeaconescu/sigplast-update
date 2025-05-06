@@ -153,8 +153,8 @@ unset($_SESSION['form_submitted']);
             contacta la 0751 328 081 sau ne puteți scrie la adresa de email
             <a
               class="email-thank-you-page text-decoration-none"
-              href="mailto:albarim@gmail.com"
-              >albarim@gmail.com</a
+              href="mailto:office@sigplast.ro"
+              >office@sigplast.ro</a
             >
           </p>
           <div>
