@@ -84,6 +84,30 @@ if (!$captchaSuccess || !$captchaSuccess->success) {
         die("Numele si un numar de telefon valid sunt obligatorii.");
     }
 
+    $uploadedFile = $_FILES['uploaded-image'] ?? null;
+    $allowedTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
+    $maxSize = 5 * 1024 * 1024; // 5 MB
+
+    $attachmentPath = null;
+    $attachmentName = null;
+
+if ($uploadedFile && $uploadedFile['error'] === UPLOAD_ERR_OK) {
+    $fileTmpPath = $uploadedFile['tmp_name'];
+    $fileName = basename($uploadedFile['name']);
+    $fileType = mime_content_type($fileTmpPath);
+    $fileSize = filesize($fileTmpPath);
+
+    if (in_array($fileType, $allowedTypes) && $fileSize <= $maxSize) {
+        $attachmentPath = $fileTmpPath;
+        $attachmentName = $fileName;
+    } else {
+        die("Fișierul trebuie să fie o imagine validă (JPG, PNG, GIF, WEBP) și să nu depășească 5MB.");
+    }
+} elseif ($uploadedFile && $uploadedFile['error'] !== UPLOAD_ERR_NO_FILE) {
+    die("A apărut o eroare la încărcarea fișierului.");
+}
+
+
     try {
         $mail->isSMTP();                                            
         $mail->Host       = $_ENV['SMTP_HOST'];           // Use the SMTP host from .env
@@ -95,7 +119,7 @@ if (!$captchaSuccess || !$captchaSuccess->success) {
     
         //Recipients
         $mail->setFrom($_ENV['SMTP_USERNAME'], "Sigplast website");
-        $mail->addAddress('albarim@gmail.com', "$fullName");
+        $mail->addAddress('daniel.deaconescu98@gmail.com', "$fullName");
         $mail->CharSet = 'UTF-8';
 
         //Content
@@ -121,7 +145,11 @@ if (!$captchaSuccess || !$captchaSuccess->success) {
             
         ";
         // $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
-    
+        
+        if ($attachmentPath && $attachmentName) {
+            $mail->addAttachment($attachmentPath, $attachmentName);
+        }
+
         $mail->send();
         session_start();
         $_SESSION['form_submitted'] = true;

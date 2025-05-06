@@ -276,9 +276,14 @@ document
     const fullNameError = document.getElementById("workshopFullNameError");
     const phoneNumError = document.getElementById("workshopPhoneNumError");
 
-    // Clear previous errors
+    const fileInput = document.getElementById("workshopFileUpload"); // adjust if your file input has a different ID
+    const file = fileInput.files[0];
+    const fileError = document.getElementById("fileError2");
+
+    // Clear previous error messages
     fullNameError.textContent = "";
     phoneNumError.textContent = "";
+    fileError.textContent = "";
 
     // Validate full name
     if (fullName.value.trim() === "") {
@@ -287,13 +292,32 @@ document
     }
 
     // Validate phone number
-
     if (phoneNum.value.trim() === "") {
       phoneNumError.textContent = 'Câmpul "Număr de telefon" este obligatoriu.';
       valid = false;
     }
 
-    // If not valid, prevent submission
+    // Validate file if selected
+    if (file) {
+      const allowedTypes = [
+        "image/jpeg",
+        "image/png",
+        "image/gif",
+        "image/webp",
+      ];
+      const maxSize = 5 * 1024 * 1024; // 5MB
+
+      if (!allowedTypes.includes(file.type)) {
+        fileError.textContent =
+          "Fișierul trebuie să fie o imagine (JPG, PNG, GIF, WEBP).";
+        valid = false;
+      } else if (file.size > maxSize) {
+        fileError.textContent = "Fișierul este prea mare. Limita este de 5MB.";
+        valid = false;
+      }
+    }
+
+    // Prevent form submission if any validation fails
     if (!valid) {
       e.preventDefault();
     }
@@ -309,5 +333,16 @@ fileInput.addEventListener("change", function () {
     fileName.textContent = fileInput.files[0].name;
   } else {
     fileName.textContent = "Niciun fișier încărcat";
+  }
+});
+
+const fileInput2 = document.getElementById("file-upload2");
+const fileName2 = document.getElementById("file-name2");
+
+fileInput2.addEventListener("change", function () {
+  if (fileInput2.files.length > 0) {
+    fileName2.textContent = fileInput2.files[0].name;
+  } else {
+    fileName2.textContent = "Niciun fișier încărcat";
   }
 });

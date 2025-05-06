@@ -739,6 +739,7 @@
                 method="POST"
                 class="workshop_form"
                 id="workshopForm"
+                enctype="multipart/form-data"
               >
                 <div class="mb-3">
                   <label for="workshopFullName" class="form-label"
@@ -772,15 +773,15 @@
                   <input type="email" name="email" class="form-control" />
                 </div>
                 <div class="custom-file-upload mb-3">
-                  <label for="file-upload" class="custom-file-label">
+                  <label for="file-upload2" class="custom-file-label">
                     Încarcă o fotografie
                   </label>
-                  <input id="file-upload" type="file" name="uploaded-image" />
-                  <span id="file-name" class="file-name"
+                  <input id="file-upload2" type="file" name="uploaded-image" />
+                  <span id="file-name2" class="file-name"
                     >Niciun fișier încărcat</span
                   >
                 </div>
-                <div id="fileError" class="text-danger mt-2"></div>
+                <div id="fileError2" class="text-danger mt-2"></div>
                 <div class="mb-3">
                   <label for="">Descriere comandă:</label>
                   <textarea
