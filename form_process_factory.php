@@ -50,11 +50,12 @@ $mail = new PHPMailer(true);
 if($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $turnstileSecretKey = $_ENV['TURNSTILE_SECRET_KEY'];
-    $turnstileResponse = $_POST['cf-turnstile-response-sigplast'];
+    
+    $turnstileResponse = $_POST['cf-turnstile-response'] ?? null;
 
-    if (!isset($_POST['cf-turnstile-response-sigplast'])) {
-        die("No Turnstile response received.");
-    }
+if (!$turnstileResponse) {
+    die("No Turnstile response received.");
+}
 
     $verifyResponse = file_get_contents("https://challenges.cloudflare.com/turnstile/v0/siteverify", false, stream_context_create([
         'http' => [
