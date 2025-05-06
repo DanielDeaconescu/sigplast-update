@@ -582,36 +582,56 @@
             <div class="modal-body modal-body-workshop">
               <form
                 action="form_process_factory.php"
-                method="post"
+                method="POST"
+                enctype="multipart/form-data"
                 class="factory_form"
+                id="factoryForm"
               >
                 <div class="mb-3">
                   <label for="" class="form-label">Nume complet:</label>
                   <input
                     type="text"
                     name="full-name"
+                    id="fullName"
                     class="form-control"
-                    required
                   />
+                  <div class="text-danger" id="fullNameError"></div>
                 </div>
                 <div class="mb-3">
                   <label for="">Număr de telefon:</label>
                   <input
                     type="tel"
                     name="phone-num"
+                    id="phoneNum"
                     class="form-control"
                     placeholder="0755404218"
-                    required
                   />
+                  <div class="text-danger" id="phoneNumError"></div>
                 </div>
                 <div class="mb-3">
-                  <label for="">Localitatea:</label>
-                  <input type="text" name="location" class="form-control" />
+                  <label for="">Localitate:</label>
+                  <input
+                    type="text"
+                    name="location"
+                    id="factoryLocation"
+                    class="form-control"
+                  />
+                  <div class="text-danger" id="factoryLocationError"></div>
                 </div>
                 <div class="mb-3">
                   <label for="">Email:</label>
                   <input type="email" name="email" class="form-control" />
                 </div>
+                <div class="custom-file-upload mb-3">
+                  <label for="file-upload" class="custom-file-label">
+                    Încarcă o fotografie
+                  </label>
+                  <input id="file-upload" type="file" name="uploaded-image" />
+                  <span id="file-name" class="file-name"
+                    >Niciun fișier încărcat</span
+                  >
+                </div>
+                <div id="fileError" class="text-danger mt-2"></div>
                 <div class="mb-3">
                   <label for="">Descriere comandă:</label>
                   <textarea

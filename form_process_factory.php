@@ -118,7 +118,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->Port       = $_ENV['SMTP_PORT'];
     
         $mail->setFrom($_ENV['SMTP_USERNAME'], "Sigplast website");
-        $mail->addAddress('daniel.deaconescu98@gmail.com', "$fullName");
+        $mail->addAddress('albarim@gmail.com', "$fullName");
         $mail->CharSet = 'UTF-8';
 
         $mail->isHTML(true);
