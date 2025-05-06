@@ -694,6 +694,34 @@ main hr {
   color: rgb(146, 144, 195);
 }
 
+.custom-file-upload {
+  position: relative;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: inherit;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.custom-file-label {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  width: fit-content;
+}
+
+.file-name {
+  color: #000;
+  font-size: 0.95rem;
+}
+
 /* Form styling */
 
 /* Side-buttons styling */

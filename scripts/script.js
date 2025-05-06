@@ -246,7 +246,6 @@ document.getElementById("factoryForm").addEventListener("submit", function (e) {
 });
 
 // Workshop Form Validation
-
 document
   .getElementById("workshopForm")
   .addEventListener("submit", function (e) {
@@ -279,3 +278,16 @@ document
       e.preventDefault();
     }
   });
+
+// Upload a file functionality
+
+const fileInput = document.getElementById("file-upload");
+const fileName = document.getElementById("file-name");
+
+fileInput.addEventListener("change", function () {
+  if (fileInput.files.length > 0) {
+    fileName.textContent = fileInput.files[0].name;
+  } else {
+    fileName.textContent = "Niciun fișier încărcat";
+  }
+});
