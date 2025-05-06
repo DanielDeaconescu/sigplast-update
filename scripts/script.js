@@ -223,9 +223,14 @@ document.getElementById("factoryForm").addEventListener("submit", function (e) {
   const fullNameError = document.getElementById("fullNameError");
   const phoneNumError = document.getElementById("phoneNumError");
 
+  const fileInput = document.getElementById("file-upload");
+  const file = fileInput.files[0];
+  const fileError = document.getElementById("fileError");
+
   // Clear previous messages
   fullNameError.textContent = "";
   phoneNumError.textContent = "";
+  fileError.textContent = "";
 
   // Validate full name
   if (fullName.value.trim() === "") {
@@ -237,6 +242,21 @@ document.getElementById("factoryForm").addEventListener("submit", function (e) {
   if (phoneNum.value.trim() === "") {
     phoneNumError.textContent = 'Câmpul "Număr de telefon" este obligatoriu!';
     valid = false;
+  }
+
+  // Validate file if selected
+  if (file) {
+    const allowedTypes = ["image/jpeg", "image/png", "image/gif", "image/webp"];
+    const maxSize = 5 * 1024 * 1024; // 5MB
+
+    if (!allowedTypes.includes(file.type)) {
+      fileError.textContent =
+        "Fișierul trebuie să fie o imagine (JPG, PNG, GIF, WEBP).";
+      valid = false;
+    } else if (file.size > maxSize) {
+      fileError.textContent = "Fișierul este prea mare. Limita este de 5MB.";
+      valid = false;
+    }
   }
 
   // Prevent submission if form not valid
