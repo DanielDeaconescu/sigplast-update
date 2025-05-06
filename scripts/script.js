@@ -233,6 +233,7 @@ document.getElementById("factoryForm").addEventListener("submit", function (e) {
   fullNameError.textContent = "";
   phoneNumError.textContent = "";
   fileError.textContent = "";
+  factoryLocationError.textContent = "";
 
   // Validate full name
   if (fullName.value.trim() === "") {
@@ -296,6 +297,7 @@ document
     fullNameError.textContent = "";
     phoneNumError.textContent = "";
     fileError.textContent = "";
+    workshopLocationError.textContent = "";
 
     // Validate full name
     if (fullName.value.trim() === "") {
