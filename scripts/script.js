@@ -281,8 +281,12 @@ document
 
     const fullName = document.getElementById("workshopFullName");
     const phoneNum = document.getElementById("workshopPhoneNum");
+    const workshopLocation = document.getElementById("workshopLocation");
     const fullNameError = document.getElementById("workshopFullNameError");
     const phoneNumError = document.getElementById("workshopPhoneNumError");
+    const workshopLocationError = document.getElementById(
+      "workshopLocationError"
+    );
 
     const fileInput = document.getElementById("file-upload2"); // adjust if your file input has a different ID
     const file = fileInput.files[0];
@@ -295,13 +299,20 @@ document
 
     // Validate full name
     if (fullName.value.trim() === "") {
-      fullNameError.textContent = 'Câmpul "Nume complet" este obligatoriu.';
+      fullNameError.textContent = 'Câmpul "Nume complet" este obligatoriu!';
       valid = false;
     }
 
     // Validate phone number
     if (phoneNum.value.trim() === "") {
-      phoneNumError.textContent = 'Câmpul "Număr de telefon" este obligatoriu.';
+      phoneNumError.textContent = 'Câmpul "Număr de telefon" este obligatoriu!';
+      valid = false;
+    }
+
+    // Validate location
+    if (workshopLocation.value.trim() === "") {
+      workshopLocationError.textContent =
+        'Câmpul "Localitate" este obligatoriu!';
       valid = false;
     }
 
