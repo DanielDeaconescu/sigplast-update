@@ -276,7 +276,7 @@ document
     const fullNameError = document.getElementById("workshopFullNameError");
     const phoneNumError = document.getElementById("workshopPhoneNumError");
 
-    const fileInput = document.getElementById("workshopFileUpload"); // adjust if your file input has a different ID
+    const fileInput = document.getElementById("file-upload2"); // adjust if your file input has a different ID
     const file = fileInput.files[0];
     const fileError = document.getElementById("fileError2");
 
