@@ -542,36 +542,58 @@
             <div class="modal-body modal-body-workshop">
               <form
                 action="form_process_workshop.php"
-                method="post"
+                method="POST"
                 class="workshop_form"
+                id="workshopForm"
+                enctype="multipart/form-data"
               >
                 <div class="mb-3">
-                  <label for="" class="form-label">Nume complet:</label>
+                  <label for="workshopFullName" class="form-label"
+                    >Nume complet:</label
+                  >
                   <input
                     type="text"
                     name="full-name"
+                    id="workshopFullName"
                     class="form-control"
-                    required
                   />
+                  <div class="text-danger" id="workshopFullNameError"></div>
                 </div>
                 <div class="mb-3">
                   <label for="">Număr de telefon:</label>
                   <input
                     type="tel"
                     name="phone-num"
+                    id="workshopPhoneNum"
                     class="form-control"
                     placeholder="0755404218"
-                    required
                   />
+                  <div class="text-danger" id="workshopPhoneNumError"></div>
                 </div>
                 <div class="mb-3">
-                  <label for="">Localitatea:</label>
-                  <input type="text" name="location" class="form-control" />
+                  <label for="">Localitate:</label>
+                  <input
+                    type="text"
+                    name="location"
+                    class="form-control"
+                    id="workshopLocation"
+                  />
+                  <div class="text-danger" id="workshopLocationError"></div>
                 </div>
                 <div class="mb-3">
                   <label for="">Email:</label>
                   <input type="email" name="email" class="form-control" />
                 </div>
+                <div class="custom-file-upload mb-3">
+                  <label for="file-upload2" class="custom-file-label">
+                    Încarcă o fotografie
+                  </label>
+                  <input id="file-upload2" type="file" name="uploaded-image" />
+                  <span id="file-name2" class="file-name"
+                    >Niciun fișier încărcat</span
+                  >
+                </div>
+                <div id="fileError2" class="text-danger mt-2"></div>
                 <div class="mb-3">
                   <label for="">Descriere comandă:</label>
                   <textarea
