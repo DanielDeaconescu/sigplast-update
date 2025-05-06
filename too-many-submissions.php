@@ -29,7 +29,7 @@ unset($_SESSION['rate_limited']);
   <div class="container d-flex align-items-center justify-content-center message-container">
     <div class="text-center border p-5 rounded shadow-sm bg-white">
       <h1 class="mb-4 text-danger">Prea multe solicitări</h1>
-      <p class="lead">Ai trimis deja formularul de două ori în ultima oră.</p>
+      <p class="lead">Ai trimis deja formularul de două ori în ultima zi.</p>
       <p class="mb-4">Din motive de securitate, limităm numărul de încercări pentru a preveni abuzurile. Te rugăm să revii mai târziu sau să ne contactezi telefonic dacă este urgent. Mulțumim pentru înțelegere!</p>
       <a href="index.html" class="btn btn-primary">Înapoi la pagina principală</a>
     </div>
