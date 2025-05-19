@@ -367,7 +367,7 @@ body {
   background: url("../img/about/img1.jpg");
   background-attachment: fixed;
   color: #fff;
-  margin-top: 5em;
+  /* margin-top: 5em; */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -395,7 +395,7 @@ body {
   background: url("../img/headers/img3.jpg");
   background-attachment: fixed;
   color: #fff;
-  margin-top: 7em;
+  /* margin-top: 7em; */
   background-position: center -300px;
   background-repeat: no-repeat;
   background-size: cover;
@@ -435,7 +435,7 @@ body {
   background: url("../img/factory/factory.jpg");
   background-attachment: fixed;
   color: #fff;
-  margin-top: 7em;
+  /* margin-top: 7em; */
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -454,7 +454,6 @@ main hr {
   background: url("../img/workshop/workshop1.jpg");
   background-attachment: fixed;
   color: #fff;
-  margin-top: 7em;
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -468,7 +467,7 @@ main hr {
   background: url("../img/contact/contact.jpg");
   background-attachment: fixed;
   color: #fff;
-  margin-top: 7em;
+  /* margin-top: 7em; */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -904,6 +903,12 @@ input[type="file"] {
 /* Styling the WhatsApp modal end */
 
 /* Media Queries */
+@media (max-width: 576px) {
+  .navbar-custom {
+    height: unset;
+  }
+}
+
 @media (max-width: 768px) {
   .padded-y {
     padding-top: 10px;
