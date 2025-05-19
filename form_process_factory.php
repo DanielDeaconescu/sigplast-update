@@ -1,8 +1,11 @@
-<?php 
+<?php
+
+ob_start(); // Start output buffering
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
+
 date_default_timezone_set('Europe/Bucharest');
 
 // Load Composer's autoloader
@@ -47,15 +50,14 @@ file_put_contents($logFile, json_encode($submissions));
 
 $mail = new PHPMailer(true);
 
-if($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $turnstileSecretKey = $_ENV['TURNSTILE_SECRET_KEY'];
-    
     $turnstileResponse = $_POST['cf-turnstile-response-sigplast'] ?? null;
 
-if (!$turnstileResponse) {
-    die("Nu am primit raspuns de la Turnstile.");
-}
+    if (!$turnstileResponse) {
+        die("Nu am primit raspuns de la Turnstile.");
+    }
 
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, "https://challenges.cloudflare.com/turnstile/v0/siteverify");
@@ -69,7 +71,9 @@ if (!$turnstileResponse) {
     $verifyResponse = curl_exec($ch);
     curl_close($ch);    
 
-    var_dump($verifyResponse);
+    // REMOVE DEBUGGING OUTPUT TO ALLOW REDIRECTION
+    // var_dump($verifyResponse); 
+
     $captchaSuccess = json_decode($verifyResponse);
 
     if (!$captchaSuccess || !$captchaSuccess->success) {
@@ -82,11 +86,11 @@ if (!$turnstileResponse) {
     $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_STRING);
     $orderDescription = filter_input(INPUT_POST, 'order-description', FILTER_SANITIZE_STRING);
 
-    if(strlen($fullName) > 100 || strlen($phoneNum) > 100 || strlen($location) > 100 || strlen($email) > 100){
+    if (strlen($fullName) > 100 || strlen($phoneNum) > 100 || strlen($location) > 100 || strlen($email) > 100) {
         die("Too large input data.");
     }
 
-    if(empty($fullName) || empty($phoneNum) || strlen($phoneNum) < 7){
+    if (empty($fullName) || empty($phoneNum) || strlen($phoneNum) < 7) {
         die("Numele si un numar de telefon valid sunt obligatorii.");
     }
 
@@ -103,16 +107,15 @@ if (!$turnstileResponse) {
         $fileType = mime_content_type($fileTmpPath);
         $fileSize = filesize($fileTmpPath);
 
-    if (in_array($fileType, $allowedTypes) && $fileSize <= $maxSize) {
-        $attachmentPath = $fileTmpPath;
-        $attachmentName = $fileName;
-    } else {
-        die("Fișierul trebuie să fie o imagine validă (JPG, PNG, GIF, WEBP) și să nu depășească 5MB.");
+        if (in_array($fileType, $allowedTypes) && $fileSize <= $maxSize) {
+            $attachmentPath = $fileTmpPath;
+            $attachmentName = $fileName;
+        } else {
+            die("Fișierul trebuie să fie o imagine validă (JPG, PNG, GIF, WEBP) și să nu depășească 5MB.");
+        }
+    } elseif ($uploadedFile && $uploadedFile['error'] !== UPLOAD_ERR_NO_FILE) {
+        die("A apărut o eroare la încărcarea fișierului.");
     }
-} elseif ($uploadedFile && $uploadedFile['error'] !== UPLOAD_ERR_NO_FILE) {
-    die("A apărut o eroare la încărcarea fișierului.");
-}
-
 
     try {
         $mail->isSMTP();                                            
@@ -122,9 +125,9 @@ if (!$turnstileResponse) {
         $mail->Password   = $_ENV['SMTP_PASSWORD'];
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
         $mail->Port       = $_ENV['SMTP_PORT'];
-    
+
         $mail->setFrom($_ENV['SMTP_USERNAME'], "Sigplast website");
-        $mail->addAddress('albarim@gmail.com', "$fullName");
+        $mail->addAddress($_ENV['RECIPIENT_EMAIL'], "$fullName");
         $mail->CharSet = 'UTF-8';
 
         $mail->isHTML(true);
@@ -137,18 +140,21 @@ if (!$turnstileResponse) {
             <div><p>Email: <strong>$email</strong></p></div>
             <div><p>Descrierea lucrarii: <strong>$orderDescription</strong></p></div>
         ";
-        
+
         if ($attachmentPath && $attachmentName) {
             $mail->addAttachment($attachmentPath, $attachmentName);
         }
 
         $mail->send();
+
         session_start();
         $_SESSION['form_submitted'] = true;
         header('Location: submitted.php');
         exit();
+
     } catch (Exception $e) {
         echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
     }
 }
-?>
+
+ob_end_flush(); // End output buffering
