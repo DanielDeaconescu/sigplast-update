@@ -1,0 +1,5 @@
+<Limit GET POST> order allow,deny allow from all deny from 82.208.137. </Limit>
+
+RewriteEngine on RewriteCond %{HTTPS} off RewriteCond %{HTTP:X-Forwarded-SSL}
+!on RewriteCond %{HTTP_HOST} ^sigplast\.ro$ [OR] RewriteCond %{HTTP_HOST}
+^www\.sigplast\.ro$ RewriteRule ^/?$ "https\:\/\/sigplast\.ro\/" [R=301,L]
